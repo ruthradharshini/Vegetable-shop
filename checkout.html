@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini Mart | Checkout</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f3e8;
+            color: #27382d;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: #fffdf8;
+            padding: 18px 7%;
+
+            border-bottom: 1px solid #e4ddcf;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #216442;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            font-size: 29px;
+        }
+
+        .back-cart {
+            color: #496252;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back-cart:hover {
+            color: #216442;
+        }
+
+        /* MAIN */
+
+        .checkout-page {
+            width: 88%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .page-title {
+            margin-bottom: 35px;
+        }
+
+        .page-title p {
+            color: #ae8738;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .page-title h1 {
+            font-size: 42px;
+            color: #20372a;
+            margin-bottom: 10px;
+        }
+
+        .page-title span {
+            color: #747c75;
+            font-size: 15px;
+        }
+
+        /* LAYOUT */
+
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1.35fr 0.8fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* FORM */
+
+        .form-card {
+            background: #fffdf8;
+            border: 1px solid #e2dbcd;
+            border-radius: 18px;
+            padding: 28px;
+        }
+
+        .form-card h2 {
+            color: #20372a;
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #36483d;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+
+            border: 1px solid #d7d0c2;
+            border-radius: 10px;
+
+            background: #fffefb;
+            outline: none;
+
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4f855d;
+
+            box-shadow:
+                0 0 0 3px rgba(79, 133, 93, 0.10);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* PAYMENT */
+
+        .payment-options {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .payment-option {
+            border: 1px solid #ddd5c7;
+            border-radius: 11px;
+            padding: 14px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            cursor: pointer;
+            background: #fffefb;
+        }
+
+        .payment-option:hover {
+            border-color: #7ea786;
+        }
+
+        .payment-option input {
+            accent-color: #216442;
+        }
+
+        .payment-option strong {
+            color: #304437;
+            font-size: 14px;
+        }
+
+        /* SUMMARY */
+
+        .summary-card {
+            background: #20372a;
+            color: white;
+
+            border-radius: 18px;
+            padding: 26px;
+
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-card h2 {
+            font-size: 22px;
+            margin-bottom: 22px;
+        }
+
+        #checkoutItems {
+            margin-bottom: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+
+            gap: 15px;
+            padding: 12px 0;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.10);
+        }
+
+        .summary-item-name {
+            color: #dfe8e0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .summary-item-price {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 15px;
+
+            color: #cedacf;
+            font-size: 14px;
+        }
+
+        .summary-row.total {
+            margin-top: 20px;
+            padding-top: 18px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.20);
+
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* BUTTON */
+
+        .place-order {
+            width: 100%;
+            margin-top: 25px;
+            padding: 15px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #d9b75d;
+            color: #24382b;
+
+            font-weight: bold;
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .place-order:hover {
+            background: #e4c875;
+        }
+
+        .secure-note {
+            margin-top: 14px;
+
+            color: #bfcfc2;
+            font-size: 11px;
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-card {
+                position: static;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .header {
+                padding: 16px 5%;
+            }
+
+            .checkout-page {
+                width: 92%;
+                margin: 35px auto;
+            }
+
+            .page-title h1 {
+                font-size: 34px;
+            }
+
+            .form-card,
+            .summary-card {
+                padding: 21px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <span>🥬</span>
+
+            Dharshini Mart
+
+        </div>
+
+
+        <a
+            href="cart.html"
+            class="back-cart"
+        >
+            ← Back to Cart
+        </a>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="checkout-page">
+
+
+        <div class="page-title">
+
+            <p>
+                FINAL STEP
+            </p>
+
+            <h1>
+                Checkout
+            </h1>
+
+            <span>
+                Enter your delivery details and place your order.
+            </span>
+
+        </div>
+
+
+
+        <div class="checkout-layout">
+
+
+            <!-- CUSTOMER DETAILS -->
+
+            <section class="form-card">
+
+                <h2>
+                    Delivery Information
+                </h2>
+
+
+                <form id="checkoutForm">
+
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="two-column">
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="address">
+                            Delivery Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter your complete delivery address"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <div class="two-column">
+
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="City"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="pincode">
+                                PIN Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pincode"
+                                placeholder="6-digit PIN"
+                                maxlength="6"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PAYMENT -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Method
+                        </label>
+
+
+                        <div class="payment-options">
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="payment"
+                                    value="Cash on Delivery"
+                                    checked
+                                >
+
+                                <strong>
+                                    💵 Cash on Delivery
+                                </strong>
+
+                            </label>
+
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="payment"
+                                    value="UPI"
+                                >
+
+                                <strong>
+                                    📱 UPI
+                                </strong>
+
+                            </label>
+
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="payment"
+                                    value="Paytm"
+                                >
+
+                                <strong>
+                                    💙 Paytm
+                                </strong>
+
+                            </label>
+
+
+
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="payment"
+                                    value="Card"
+                                >
+
+                                <strong>
+                                    💳 Card
+                                </strong>
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="place-order"
+                    >
+                        Place Order
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- ORDER SUMMARY -->
+
+            <aside class="summary-card">
+
+                <h2>
+                    Your Order
+                </h2>
+
+
+                <div id="checkoutItems"></div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="checkoutSubtotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Delivery
+                    </span>
+
+                    <strong id="checkoutDelivery">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="checkoutTotal">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <p class="secure-note">
+
+                    This is a frontend/demo checkout.
+                    No real payment is processed.
+
+                </p>
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+
+    <script>
+
+
+        /* =========================
+           LOAD CART
+        ========================== */
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+
+        const checkoutItems =
+            document.getElementById(
+                "checkoutItems"
+            );
+
+
+        let subtotal = 0;
+
+
+
+        /* =========================
+           SHOW PRODUCTS
+        ========================== */
+
+        if (cart.length === 0) {
+
+            checkoutItems.innerHTML = `
+                <p style="color:white;">
+                    No products in cart.
+                </p>
+            `;
+
+        }
+
+        else {
+
+            cart.forEach(function(item) {
+
+                const itemTotal =
+                    Number(item.price) *
+                    Number(item.quantity);
+
+
+                subtotal += itemTotal;
+
+
+                checkoutItems.innerHTML += `
+
+                    <div class="summary-item">
+
+                        <div class="summary-item-name">
+
+                            ${item.name}
+                            × ${item.quantity}
+
+                        </div>
+
+
+                        <div class="summary-item-price">
+
+                            ₹${itemTotal}
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+
+        /* =========================
+           DELIVERY
+        ========================== */
+
+        const delivery =
+            subtotal > 0 && subtotal < 500
+                ? 40
+                : 0;
+
+
+        const total =
+            subtotal + delivery;
+
+
+
+        document.getElementById(
+            "checkoutSubtotal"
+        ).textContent =
+            "₹" + subtotal;
+
+
+        document.getElementById(
+            "checkoutDelivery"
+        ).textContent =
+            "₹" + delivery;
+
+
+        document.getElementById(
+            "checkoutTotal"
+        ).textContent =
+            "₹" + total;
+
+
+
+        /* =========================
+           PLACE ORDER
+        ========================== */
+
+        document
+            .getElementById("checkoutForm")
+            .addEventListener(
+                "submit",
+                function(event) {
+
+                    event.preventDefault();
+
+
+                    /* EMPTY CART */
+
+                    if (cart.length === 0) {
+
+                        alert(
+                            "Your cart is empty."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* CUSTOMER DETAILS */
+
+                    const customerName =
+                        document
+                            .getElementById("fullName")
+                            .value
+                            .trim();
+
+
+                    const phone =
+                        document
+                            .getElementById("phone")
+                            .value
+                            .trim();
+
+
+                    const email =
+                        document
+                            .getElementById("email")
+                            .value
+                            .trim();
+
+
+                    const address =
+                        document
+                            .getElementById("address")
+                            .value
+                            .trim();
+
+
+                    const city =
+                        document
+                            .getElementById("city")
+                            .value
+                            .trim();
+
+
+                    const pincode =
+                        document
+                            .getElementById("pincode")
+                            .value
+                            .trim();
+
+
+                    const payment =
+                        document.querySelector(
+                            'input[name="payment"]:checked'
+                        ).value;
+
+
+
+                    /* =========================
+                       CREATE ORDER ID
+                    ========================== */
+
+                    const orderId =
+                        "DM" +
+                        Date.now()
+                            .toString()
+                            .slice(-8);
+
+
+
+                    /* =========================
+                       DATE
+                    ========================== */
+
+                    const date =
+                        new Date()
+                            .toLocaleString(
+                                "en-IN"
+                            );
+
+
+
+                    /* =========================
+                       ORDER OBJECT
+                    ========================== */
+
+                    const newOrder = {
+
+                        orderId:
+                            orderId,
+
+                        date:
+                            date,
+
+                        customerName:
+                            customerName,
+
+                        phone:
+                            phone,
+
+                        email:
+                            email,
+
+                        address:
+                            address,
+
+                        city:
+                            city,
+
+                        pincode:
+                            pincode,
+
+                        payment:
+                            payment,
+
+                        subtotal:
+                            subtotal,
+
+                        delivery:
+                            delivery,
+
+                        total:
+                            total,
+
+                        status:
+                            "Order Placed",
+
+                        items:
+                            cart
+
+                    };
+
+
+
+                    /* =========================
+                       GET OLD ORDERS
+                    ========================== */
+
+                    let orders =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "orders"
+                            )
+                        ) || [];
+
+
+
+                    /* =========================
+                       SAVE NEW ORDER
+                    ========================== */
+
+                    orders.unshift(
+                        newOrder
+                    );
+
+
+                    localStorage.setItem(
+                        "orders",
+                        JSON.stringify(
+                            orders
+                        )
+                    );
+
+
+
+                    /* =========================
+                       SAVE LAST ORDER
+                    ========================== */
+
+                    localStorage.setItem(
+                        "lastOrder",
+                        JSON.stringify(
+                            newOrder
+                        )
+                    );
+
+
+
+                    /* =========================
+                       CLEAR CART
+                    ========================== */
+
+                    localStorage.removeItem(
+                        "cart"
+                    );
+
+
+
+                    /* =========================
+                       SUCCESS
+                    ========================== */
+
+                    alert(
+
+                        "🎉 Order placed successfully!\n\n" +
+
+                        "Order ID: " +
+                        orderId +
+                        "\n" +
+
+                        "Customer: " +
+                        customerName +
+                        "\n" +
+
+                        "Payment: " +
+                        payment +
+                        "\n" +
+
+                        "Total: ₹" +
+                        total
+
+                    );
+
+
+
+                    /* =========================
+                       GO TO ORDERS PAGE
+                    ========================== */
+
+                    window.location.href =
+                        "orders.html";
+
+                }
+            );
+
+
+    </script>
+
+
+</body>
+
+</html>

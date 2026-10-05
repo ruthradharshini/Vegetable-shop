@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini Mart | My Orders</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f4eb;
+            color: #26382c;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #fffdf7;
+            padding: 18px 7%;
+            border-bottom: 1px solid #e4ddcf;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #216442;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            font-size: 29px;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #59655c;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #216442;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .heading {
+            margin-bottom: 30px;
+        }
+
+        .heading p {
+            color: #b18a35;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .heading h1 {
+            color: #20372a;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .heading span {
+            color: #777f78;
+            font-size: 15px;
+        }
+
+        /* ORDER CARD */
+
+        .order-card {
+            background: #fffdf7;
+            border: 1px solid #e2dbcd;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .order-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e8e2d7;
+        }
+
+        .order-id {
+            color: #20372a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .order-date {
+            color: #7b837c;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        /* STATUS */
+
+        .status {
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .placed {
+            background: #e7f5e9;
+            color: #28713c;
+        }
+
+        .preparing {
+            background: #e6f0ff;
+            color: #245a9c;
+        }
+
+        .out {
+            background: #fff0d9;
+            color: #a36300;
+        }
+
+        .delivered {
+            background: #dff6e7;
+            color: #16713b;
+        }
+
+        .cancelled {
+            background: #ffe4e4;
+            color: #b52b2b;
+        }
+
+        /* CUSTOMER */
+
+        .customer-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+
+            margin-top: 20px;
+            padding-bottom: 20px;
+
+            border-bottom: 1px solid #e8e2d7;
+        }
+
+        .info-box h4 {
+            color: #59655c;
+            font-size: 12px;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+        }
+
+        .info-box p {
+            color: #293b30;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* PRODUCTS */
+
+        .products-title {
+            margin-top: 20px;
+            margin-bottom: 12px;
+
+            color: #20372a;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid #eee8dc;
+        }
+
+        .product-name {
+            color: #34473b;
+            font-size: 14px;
+        }
+
+        .product-qty {
+            color: #7a827b;
+            font-size: 13px;
+            margin-left: 10px;
+        }
+
+        .product-price {
+            color: #216442;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* BOTTOM */
+
+        .order-bottom {
+            margin-top: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .payment {
+            color: #68736b;
+            font-size: 13px;
+        }
+
+        .payment strong {
+            color: #293b30;
+        }
+
+        .total {
+            color: #20372a;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        /* CANCEL BUTTON */
+
+        .cancel-btn {
+            margin-top: 20px;
+
+            padding: 10px 18px;
+
+            border: 1px solid #d34b4b;
+            border-radius: 8px;
+
+            background: white;
+            color: #c03939;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cancel-btn:hover {
+            background: #fff0f0;
+        }
+
+        /* TRACKING */
+
+        .tracking {
+            margin-top: 25px;
+            padding: 18px;
+
+            background: #f7f8f3;
+            border-radius: 12px;
+        }
+
+        .tracking-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 18px;
+            color: #293b30;
+        }
+
+        .tracking-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+
+        .track-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .track-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+
+            background: #d5d8d3;
+
+            margin: 0 auto 8px;
+        }
+
+        .track-step.active .track-dot {
+            background: #216442;
+        }
+
+        .track-step.active p {
+            color: #216442;
+            font-weight: bold;
+        }
+
+        .track-step p {
+            font-size: 10px;
+            color: #858b85;
+        }
+
+        /* EMPTY */
+
+        .empty {
+            background: #fffdf7;
+            border: 1px solid #e2dbcd;
+            border-radius: 18px;
+
+            padding: 60px 20px;
+
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .empty h2 {
+            color: #293b30;
+            margin-bottom: 10px;
+        }
+
+        .empty p {
+            color: #777f78;
+            margin-bottom: 20px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+
+            background: #216442;
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 70px;
+
+            background: #182e22;
+            color: #dce5dd;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .heading h1 {
+                font-size: 34px;
+            }
+
+            .customer-info {
+                grid-template-columns: 1fr;
+            }
+
+            .order-top {
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .order-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tracking-line {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+
+            <span>🥬</span>
+
+            Dharshini Mart
+
+        </div>
+
+
+        <nav>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <div class="heading">
+
+            <p>
+                DHARSHINI MART
+            </p>
+
+            <h1>
+                My Orders
+            </h1>
+
+            <span>
+                View your recent orders and delivery details.
+            </span>
+
+        </div>
+
+
+        <div id="ordersContainer"></div>
+
+
+    </main>
+
+
+
+    <footer>
+
+        © 2026 Dharshini Mart.
+        Fresh choices for everyday life.
+
+    </footer>
+
+
+
+    <script>
+
+
+        /* GET ORDERS */
+
+        let orders =
+            JSON.parse(
+                localStorage.getItem("orders")
+            ) || [];
+
+
+        const container =
+            document.getElementById(
+                "ordersContainer"
+            );
+
+
+
+        /* STATUS CLASS */
+
+        function getStatusClass(status) {
+
+            if (status === "Preparing") {
+                return "preparing";
+            }
+
+            if (status === "Out for Delivery") {
+                return "out";
+            }
+
+            if (status === "Delivered") {
+                return "delivered";
+            }
+
+            if (status === "Cancelled") {
+                return "cancelled";
+            }
+
+            return "placed";
+
+        }
+
+
+
+        /* STATUS NUMBER */
+
+        function getStatusNumber(status) {
+
+            if (status === "Preparing") {
+                return 2;
+            }
+
+            if (status === "Out for Delivery") {
+                return 3;
+            }
+
+            if (status === "Delivered") {
+                return 4;
+            }
+
+            return 1;
+
+        }
+
+
+
+        /* EMPTY */
+
+        if (orders.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h2>
+                        No orders yet
+                    </h2>
+
+                    <p>
+                        Your placed orders will appear here.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="shop-btn"
+                    >
+                        Start Shopping
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* SHOW ORDERS */
+
+        else {
+
+            orders.forEach(function(order, index) {
+
+
+                let productsHTML = "";
+
+
+                order.items.forEach(function(item) {
+
+                    const itemTotal =
+                        Number(item.price) *
+                        Number(item.quantity);
+
+
+                    productsHTML += `
+
+                        <div class="product-row">
+
+                            <div>
+
+                                <span class="product-name">
+                                    ${item.name}
+                                </span>
+
+                                <span class="product-qty">
+                                    × ${item.quantity}
+                                </span>
+
+                            </div>
+
+                            <div class="product-price">
+                                ₹${itemTotal}
+                            </div>
+
+                        </div>
+
+                    `;
+
+                });
+
+
+
+                let currentStatus =
+                    order.status || "Order Placed";
+
+
+                /* OLD ORDER STATUS FIX */
+
+                if (
+                    currentStatus ===
+                    "Order Placed"
+                ) {
+
+                    currentStatus =
+                        "Order Placed";
+
+                }
+
+
+
+                let statusClass =
+                    getStatusClass(
+                        currentStatus
+                    );
+
+
+                let statusNumber =
+                    getStatusNumber(
+                        currentStatus
+                    );
+
+
+
+                let cancelButton = "";
+
+
+                if (
+                    currentStatus !==
+                    "Cancelled"
+                    &&
+                    currentStatus !==
+                    "Delivered"
+                ) {
+
+                    cancelButton = `
+
+                        <button
+                            class="cancel-btn"
+                            onclick="cancelOrder(${index})"
+                        >
+                            Cancel Order
+                        </button>
+
+                    `;
+
+                }
+
+
+
+                let trackingHTML = "";
+
+
+                if (
+                    currentStatus !==
+                    "Cancelled"
+                ) {
+
+                    trackingHTML = `
+
+                        <div class="tracking">
+
+                            <div class="tracking-title">
+                                Order Tracking
+                            </div>
+
+
+                            <div class="tracking-line">
+
+
+                                <div
+                                    class="track-step ${
+                                        statusNumber >= 1
+                                        ? "active"
+                                        : ""
+                                    }"
+                                >
+
+                                    <div class="track-dot"></div>
+
+                                    <p>
+                                        Order Placed
+                                    </p>
+
+                                </div>
+
+
+
+                                <div
+                                    class="track-step ${
+                                        statusNumber >= 2
+                                        ? "active"
+                                        : ""
+                                    }"
+                                >
+
+                                    <div class="track-dot"></div>
+
+                                    <p>
+                                        Preparing
+                                    </p>
+
+                                </div>
+
+
+
+                                <div
+                                    class="track-step ${
+                                        statusNumber >= 3
+                                        ? "active"
+                                        : ""
+                                    }"
+                                >
+
+                                    <div class="track-dot"></div>
+
+                                    <p>
+                                        Out for Delivery
+                                    </p>
+
+                                </div>
+
+
+
+                                <div
+                                    class="track-step ${
+                                        statusNumber >= 4
+                                        ? "active"
+                                        : ""
+                                    }"
+                                >
+
+                                    <div class="track-dot"></div>
+
+                                    <p>
+                                        Delivered
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+
+
+
+                container.innerHTML += `
+
+                    <div class="order-card">
+
+
+                        <div class="order-top">
+
+                            <div>
+
+                                <div class="order-id">
+                                    Order #${order.orderId}
+                                </div>
+
+                                <div class="order-date">
+                                    ${order.date}
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="status ${statusClass}"
+                            >
+                                ${currentStatus}
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="customer-info">
+
+
+                            <div class="info-box">
+
+                                <h4>
+                                    Customer
+                                </h4>
+
+                                <p>
+                                    ${order.customerName}
+                                </p>
+
+                            </div>
+
+
+
+                            <div class="info-box">
+
+                                <h4>
+                                    Phone
+                                </h4>
+
+                                <p>
+                                    ${order.phone}
+                                </p>
+
+                            </div>
+
+
+
+                            <div class="info-box">
+
+                                <h4>
+                                    Email
+                                </h4>
+
+                                <p>
+                                    ${order.email}
+                                </p>
+
+                            </div>
+
+
+
+                            <div class="info-box">
+
+                                <h4>
+                                    Delivery Address
+                                </h4>
+
+                                <p>
+                                    ${order.address}<br>
+                                    ${order.city} -
+                                    ${order.pincode}
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="products-title">
+
+                            Ordered Products
+
+                        </div>
+
+
+                        ${productsHTML}
+
+
+
+                        <div class="order-bottom">
+
+
+                            <div class="payment">
+
+                                Payment:
+                                <strong>
+                                    ${order.payment}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="total">
+
+                                Total:
+                                ₹${order.total}
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        ${trackingHTML}
+
+
+
+                        ${cancelButton}
+
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+
+        /* =========================
+           CANCEL ORDER
+        ========================== */
+
+        function cancelOrder(index) {
+
+
+            const confirmCancel =
+                confirm(
+                    "Are you sure you want to cancel this order?"
+                );
+
+
+            if (!confirmCancel) {
+                return;
+            }
+
+
+            orders[index].status =
+                "Cancelled";
+
+
+            localStorage.setItem(
+                "orders",
+                JSON.stringify(orders)
+            );
+
+
+            alert(
+                "Order cancelled successfully."
+            );
+
+
+            location.reload();
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

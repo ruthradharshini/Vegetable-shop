@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buyer Login | Vegetable Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-page">
+
+    <main class="login-wrapper">
+
+        <!-- Left Information Section -->
+        <section class="login-intro">
+
+            <a href="index.html" class="login-logo">
+                🥬 Vegetable Shop
+            </a>
+
+            <div class="intro-content">
+
+                <p class="small-title">
+                    SHOP FRESH
+                </p>
+
+                <h1>
+                    Fresh groceries,
+                    <span>made simple.</span>
+                </h1>
+
+                <p>
+                    Sign in to explore vegetables, discover new products,
+                    manage your cart and enjoy a smooth shopping experience.
+                </p>
+
+                <div class="fresh-points">
+
+                    <div>
+                        <span>✓</span>
+                        Fresh products
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Easy shopping
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Simple checkout
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Login Form Section -->
+        <section class="login-box">
+
+            <div class="login-heading">
+
+                <p class="role-name">
+                    BUYER ACCOUNT
+                </p>
+
+                <h2>
+                    Welcome back
+                </h2>
+
+                <p>
+                    Sign in to continue shopping.
+                </p>
+
+            </div>
+
+
+            <form id="buyerLoginForm">
+
+                <!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email or phone number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter your email or phone"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#" onclick="showForgotMessage(event)">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            onclick="toggleBuyerPassword()"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Remember Me -->
+                <div class="remember-row">
+
+                    <label>
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+
+                </div>
+
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Sign In
+                </button>
+
+
+                <!-- Demo Message -->
+                <p id="loginMessage" class="login-message"></p>
+
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+
+
+                <!-- Social Login -->
+                <div class="social-buttons">
+
+                    <button type="button" onclick="demoSocialLogin('Google')">
+                        <span>G</span>
+                        Google
+                    </button>
+
+                    <button type="button" onclick="demoSocialLogin('Apple')">
+                        <span>●</span>
+                        Apple
+                    </button>
+
+                </div>
+
+
+                <!-- Signup -->
+                <p class="signup-text">
+                    Don't have an account?
+                    <a href="#" onclick="showSignupMessage(event)">
+                        Create an account
+                    </a>
+                </p>
+
+            </form>
+
+
+            <!-- Back -->
+            <a href="index.html" class="back-link">
+                ← Back to role selection
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* Show / Hide Password */
+
+        function toggleBuyerPassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const button =
+                document.getElementById("togglePassword");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+                button.textContent = "Hide";
+
+            } else {
+
+                password.type = "password";
+                button.textContent = "Show";
+
+            }
+        }
+
+
+        /* Demo Login */
+
+        document
+            .getElementById("buyerLoginForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value.trim();
+
+                const message =
+                    document.getElementById("loginMessage");
+
+
+                if (email === "" || password === "") {
+
+                    message.textContent =
+                        "Please enter your email and password.";
+
+                    message.className =
+                        "login-message error";
+
+                    return;
+                }
+
+
+                message.textContent =
+                    "Demo login successful! Home page will be connected later.";
+
+                message.className =
+                    "login-message success";
+
+            });
+
+
+        /* Forgot Password */
+
+        function showForgotMessage(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Forgot password functionality will be connected later."
+            );
+        }
+
+
+        /* Social Login */
+
+        function demoSocialLogin(provider) {
+
+            alert(
+                provider +
+                " login is currently available as a demo option."
+            );
+        }
+
+
+        /* Signup */
+
+        function showSignupMessage(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Sign-up page will be added in a later stage."
+            );
+        }
+
+    </script>
+
+</body>
+</html>
