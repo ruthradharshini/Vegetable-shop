@@ -3,197 +3,417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Login | Dharshini Mart</title>
 
-    <title>Buyer Login | Vegetable Shop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8f5e9, #f8fff8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .login-intro {
+            background: linear-gradient(145deg, #126b36, #27934d);
+            color: white;
+            padding: 55px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 55px;
+        }
+
+        .brand span {
+            color: #c5f36b;
+        }
+
+        .login-intro h1 {
+            font-size: 38px;
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+
+        .login-intro p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #e3f5e7;
+            margin-bottom: 25px;
+        }
+
+        .fresh-points {
+            list-style: none;
+        }
+
+        .fresh-points li {
+            margin: 15px 0;
+            font-size: 15px;
+        }
+
+        .login-box {
+            padding: 55px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-heading {
+            margin-bottom: 30px;
+        }
+
+        .login-heading h2 {
+            font-size: 30px;
+            color: #183b25;
+            margin-bottom: 10px;
+        }
+
+        .login-heading p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 9px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d8e0d9;
+            border-radius: 9px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #239447;
+            box-shadow: 0 0 0 3px rgba(35, 148, 71, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 75px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #238642;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0 25px;
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #555;
+        }
+
+        .remember input {
+            accent-color: #238642;
+        }
+
+        .text-button {
+            border: none;
+            background: none;
+            color: #218640;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .text-button:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 9px;
+            background: #238642;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-button:hover {
+            background: #176b32;
+            transform: translateY(-1px);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #999;
+            font-size: 13px;
+            margin: 25px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e5e5e5;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .social-button {
+            padding: 12px 8px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .social-button:hover {
+            background: #f5faf5;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signup-text button {
+            border: none;
+            background: none;
+            color: #218640;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #777;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-link:hover {
+            color: #218640;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .message.error {
+            display: block;
+            color: #a32121;
+            background: #fff0f0;
+            border: 1px solid #ffd0d0;
+        }
+
+        .message.success {
+            display: block;
+            color: #176b32;
+            background: #effaf0;
+            border: 1px solid #c9ebce;
+        }
+
+        @media (max-width: 700px) {
+            .login-wrapper {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .login-intro {
+                padding: 30px;
+            }
+
+            .brand {
+                margin-bottom: 25px;
+            }
+
+            .login-intro h1 {
+                font-size: 29px;
+            }
+
+            .fresh-points {
+                display: none;
+            }
+
+            .login-box {
+                padding: 35px 25px;
+            }
+        }
+    </style>
 </head>
 
-<body class="login-page">
+<body>
 
     <main class="login-wrapper">
 
-        <!-- Left Information Section -->
         <section class="login-intro">
+            <div class="brand">🥬 Dharshini <span>Mart</span></div>
 
-            <a href="index.html" class="login-logo">
-                🥬 Vegetable Shop
-            </a>
+            <h1>Freshness delivered to your doorstep.</h1>
 
-            <div class="intro-content">
+            <p>
+                Welcome to Dharshini Mart! Shop fresh vegetables and
+                everyday essentials from the comfort of your home.
+            </p>
 
-                <p class="small-title">
-                    SHOP FRESH
-                </p>
-
-                <h1>
-                    Fresh groceries,
-                    <span>made simple.</span>
-                </h1>
-
-                <p>
-                    Sign in to explore vegetables, discover new products,
-                    manage your cart and enjoy a smooth shopping experience.
-                </p>
-
-                <div class="fresh-points">
-
-                    <div>
-                        <span>✓</span>
-                        Fresh products
-                    </div>
-
-                    <div>
-                        <span>✓</span>
-                        Easy shopping
-                    </div>
-
-                    <div>
-                        <span>✓</span>
-                        Simple checkout
-                    </div>
-
-                </div>
-
-            </div>
-
+            <ul class="fresh-points">
+                <li>🌿 Fresh and quality vegetables</li>
+                <li>🛒 Easy and convenient shopping</li>
+                <li>🚚 Convenient home delivery</li>
+                <li>💚 A simple shopping experience</li>
+            </ul>
         </section>
 
-
-        <!-- Login Form Section -->
         <section class="login-box">
 
             <div class="login-heading">
-
-                <p class="role-name">
-                    BUYER ACCOUNT
-                </p>
-
-                <h2>
-                    Welcome back
-                </h2>
-
-                <p>
-                    Sign in to continue shopping.
-                </p>
-
+                <h2>Welcome Back!</h2>
+                <p>Sign in to your account to continue shopping.</p>
             </div>
 
+            <div id="message" class="message" role="status"></div>
 
             <form id="buyerLoginForm">
 
-                <!-- Email -->
                 <div class="form-group">
-
-                    <label for="email">
-                        Email or phone number
-                    </label>
-
+                    <label for="email">Email Address</label>
                     <input
-                        type="text"
+                        type="email"
                         id="email"
-                        placeholder="Enter your email or phone"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
                         required
                     >
-
                 </div>
 
-
-                <!-- Password -->
                 <div class="form-group">
+                    <label for="password">Password</label>
 
-                    <div class="password-label">
-
-                        <label for="password">
-                            Password
-                        </label>
-
-                        <a href="#" onclick="showForgotMessage(event)">
-                            Forgot password?
-                        </a>
-
-                    </div>
-
-                    <div class="password-input">
-
+                    <div class="password-wrapper">
                         <input
                             type="password"
                             id="password"
                             placeholder="Enter your password"
+                            autocomplete="current-password"
                             required
                         >
 
                         <button
                             type="button"
+                            class="toggle-password"
                             id="togglePassword"
-                            onclick="toggleBuyerPassword()"
-                        >
-                            Show
-                        </button>
-
+                        >Show</button>
                     </div>
-
                 </div>
 
-
-                <!-- Remember Me -->
-                <div class="remember-row">
-
-                    <label>
+                <div class="form-options">
+                    <label class="remember">
                         <input type="checkbox" id="rememberMe">
                         Remember me
                     </label>
 
+                    <button
+                        type="button"
+                        class="text-button"
+                        id="forgotPassword"
+                    >Forgot password?</button>
                 </div>
 
-
-                <!-- Login Button -->
-                <button
-                    type="submit"
-                    class="login-button"
-                >
+                <button type="submit" class="login-button">
                     Sign In
                 </button>
 
-
-                <!-- Demo Message -->
-                <p id="loginMessage" class="login-message"></p>
-
-
-                <!-- Divider -->
-                <div class="divider">
-                    <span>or continue with</span>
-                </div>
-
-
-                <!-- Social Login -->
-                <div class="social-buttons">
-
-                    <button type="button" onclick="demoSocialLogin('Google')">
-                        <span>G</span>
-                        Google
-                    </button>
-
-                    <button type="button" onclick="demoSocialLogin('Apple')">
-                        <span>●</span>
-                        Apple
-                    </button>
-
-                </div>
-
-
-                <!-- Signup -->
-                <p class="signup-text">
-                    Don't have an account?
-                    <a href="#" onclick="showSignupMessage(event)">
-                        Create an account
-                    </a>
-                </p>
-
             </form>
 
+            <div class="divider">Or continue with</div>
 
-            <!-- Back -->
+            <div class="social-buttons">
+                <button type="button" class="social-button" id="googleLogin">
+                    Google
+                </button>
+
+                <button type="button" class="social-button" id="appleLogin">
+                    Apple
+                </button>
+            </div>
+
+            <p class="signup-text">
+                Don't have an account?
+                <button type="button" id="createAccount">
+                    Create Account
+                </button>
+            </p>
+
             <a href="index.html" class="back-link">
                 ← Back to role selection
             </a>
@@ -202,109 +422,122 @@
 
     </main>
 
-
     <script>
+        const loginForm = document.getElementById("buyerLoginForm");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+        const messageBox = document.getElementById("message");
 
-        /* Show / Hide Password */
-
-        function toggleBuyerPassword() {
-
-            const password =
-                document.getElementById("password");
-
-            const button =
-                document.getElementById("togglePassword");
-
-            if (password.type === "password") {
-
-                password.type = "text";
-                button.textContent = "Hide";
-
-            } else {
-
-                password.type = "password";
-                button.textContent = "Show";
-
-            }
+        function showMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.className = "message " + type;
         }
 
+        // Show or hide password
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.textContent = "Hide";
+            } else {
+                passwordInput.type = "password";
+                togglePassword.textContent = "Show";
+            }
+        });
 
-        /* Demo Login */
+        // Demo login
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-        document
-            .getElementById("buyerLoginForm")
-            .addEventListener("submit", function(event) {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
 
-                event.preventDefault();
+            if (!email || !password) {
+                showMessage("Please enter your email and password.", "error");
+                return;
+            }
 
-                const email =
-                    document.getElementById("email").value.trim();
+            /*
+              DEMO ONLY:
+              This checks the user details stored by your registration page.
+              Real authentication requires a backend server.
+            */
 
-                const password =
-                    document.getElementById("password").value.trim();
+            let savedUser = null;
 
-                const message =
-                    document.getElementById("loginMessage");
+            try {
+                savedUser = JSON.parse(localStorage.getItem("user"));
+            } catch (error) {
+                savedUser = null;
+            }
 
-
-                if (email === "" || password === "") {
-
-                    message.textContent =
-                        "Please enter your email and password.";
-
-                    message.className =
-                        "login-message error";
-
-                    return;
+            if (
+                savedUser &&
+                (savedUser.email || "").toLowerCase() === email.toLowerCase() &&
+                savedUser.password === password
+            ) {
+                if (document.getElementById("rememberMe").checked) {
+                    localStorage.setItem("rememberedEmail", email);
+                } else {
+                    localStorage.removeItem("rememberedEmail");
                 }
 
+                showMessage("Login successful! Opening your shop...", "success");
 
-                message.textContent =
-                    "login successful!";
+                setTimeout(function () {
+                    window.location.href = "home.html";
+                }, 800);
 
-                message.className =
-                    "login-message success";
+            } else {
+                showMessage(
+                    "Account not found or password is incorrect. Please register first or check your details.",
+                    "error"
+                );
+            }
+        });
 
-                window.location.href = 
-                     "home.html";    
+        // Restore remembered email
+        const rememberedEmail = localStorage.getItem("rememberedEmail");
 
-            });
-
-
-        /* Forgot Password */
-
-        function showForgotMessage(event) {
-
-            event.preventDefault();
-
-            alert(
-                "Forgot password functionality will be connected later."
-            );
+        if (rememberedEmail) {
+            emailInput.value = rememberedEmail;
+            document.getElementById("rememberMe").checked = true;
         }
 
-
-        /* Social Login */
-
-        function demoSocialLogin(provider) {
-
-            alert(
-                provider +
-                " login is currently available as a demo option."
+        // Forgot password demo
+        document.getElementById("forgotPassword").addEventListener("click", function () {
+            showMessage(
+                "Password recovery is not connected yet. Please contact the shop administrator.",
+                "error"
             );
-        }
+        });
 
+        // Registration navigation
+        document.getElementById("createAccount").addEventListener("click", function () {
+            if (document.getElementById("register.html")) {
+                window.location.href = "register.html";
+            } else {
+                showMessage(
+                    "Registration page is not connected yet. Please add your registration page.",
+                    "error"
+                );
+            }
+        });
 
-        /* Signup */
-
-        function showSignupMessage(event) {
-
-            event.preventDefault();
-
-            alert(
-                "Sign-up page will be added in a later stage."
+        // Demo social login buttons
+        document.getElementById("googleLogin").addEventListener("click", function () {
+            showMessage(
+                "Google sign-in is not connected yet.",
+                "error"
             );
-        }
+        });
 
+        document.getElementById("appleLogin").addEventListener("click", function () {
+            showMessage(
+                "Apple sign-in is not connected yet.",
+                "error"
+            );
+        });
     </script>
 
 </body>
