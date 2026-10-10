@@ -11,34 +11,36 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
             min-height: 100vh;
+            background: linear-gradient(135deg, #e8f5e9, #f6fff6);
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            background: linear-gradient(135deg, #e7f7e9, #f8fff8);
         }
 
         .login-wrapper {
             width: 100%;
             max-width: 1000px;
-            min-height: 570px;
+            min-height: 580px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: white;
+            background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
         }
 
+        /* LEFT PANEL */
+
         .login-intro {
-            padding: 50px 40px;
             background: linear-gradient(145deg, #126b36, #27934d);
             color: white;
+            padding: 45px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -47,7 +49,7 @@
         .brand {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 45px;
+            margin-bottom: 55px;
         }
 
         .brand span {
@@ -55,14 +57,15 @@
         }
 
         .login-intro h1 {
-            font-size: 36px;
+            font-size: 38px;
             line-height: 1.3;
             margin-bottom: 20px;
         }
 
         .login-intro p {
+            font-size: 15px;
             line-height: 1.8;
-            color: #e7f5e9;
+            color: #e6f5e9;
             margin-bottom: 25px;
         }
 
@@ -71,8 +74,11 @@
         }
 
         .fresh-points li {
-            margin: 15px 0;
+            margin: 16px 0;
+            font-size: 15px;
         }
+
+        /* RIGHT PANEL */
 
         .login-box {
             padding: 45px;
@@ -82,7 +88,7 @@
         }
 
         .login-heading {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
 
         .login-heading h2 {
@@ -92,8 +98,8 @@
         }
 
         .login-heading p {
-            color: #777;
             font-size: 14px;
+            color: #777777;
             line-height: 1.6;
         }
 
@@ -103,19 +109,20 @@
 
         .form-group label {
             display: block;
+            margin-bottom: 9px;
             font-size: 14px;
             font-weight: bold;
-            margin-bottom: 9px;
-            color: #333;
+            color: #333333;
         }
 
         .form-group input {
             width: 100%;
             padding: 14px;
-            border: 1px solid #d5ded6;
+            border: 1px solid #d8e0d9;
             border-radius: 8px;
             outline: none;
             font-size: 15px;
+            background: #ffffff;
         }
 
         .form-group input:focus {
@@ -128,7 +135,7 @@
         }
 
         .password-wrapper input {
-            padding-right: 65px;
+            padding-right: 70px;
         }
 
         .toggle-password {
@@ -137,10 +144,10 @@
             top: 50%;
             transform: translateY(-50%);
             border: none;
-            background: none;
+            background: transparent;
             color: #218640;
-            cursor: pointer;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .form-options {
@@ -148,7 +155,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 10px;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
             font-size: 13px;
         }
 
@@ -156,7 +163,7 @@
             display: flex;
             align-items: center;
             gap: 7px;
-            color: #555;
+            color: #555555;
         }
 
         .remember input {
@@ -165,22 +172,27 @@
 
         .text-button {
             border: none;
-            background: none;
+            background: transparent;
             color: #218640;
-            cursor: pointer;
             font-size: 13px;
+            cursor: pointer;
+        }
+
+        .text-button:hover {
+            text-decoration: underline;
         }
 
         .login-button {
             width: 100%;
             padding: 15px;
-            background: #238642;
-            color: white;
             border: none;
             border-radius: 8px;
+            background: #238642;
+            color: #ffffff;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .login-button:hover {
@@ -191,16 +203,16 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #999;
+            color: #999999;
             font-size: 13px;
-            margin: 23px 0;
+            margin: 25px 0;
         }
 
         .divider::before,
         .divider::after {
             content: "";
-            flex: 1;
             height: 1px;
+            flex: 1;
             background: #e5e5e5;
         }
 
@@ -213,21 +225,25 @@
         .social-button {
             padding: 12px;
             background: white;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
             border-radius: 8px;
             cursor: pointer;
+        }
+
+        .social-button:hover {
+            background: #f5faf5;
         }
 
         .signup-text {
             text-align: center;
             margin-top: 25px;
+            color: #666666;
             font-size: 14px;
-            color: #666;
         }
 
         .signup-text button {
             border: none;
-            background: none;
+            background: transparent;
             color: #218640;
             font-weight: bold;
             cursor: pointer;
@@ -237,16 +253,20 @@
             display: block;
             text-align: center;
             margin-top: 20px;
-            color: #777;
+            color: #777777;
             text-decoration: none;
             font-size: 13px;
+        }
+
+        .back-link:hover {
+            color: #218640;
         }
 
         .message {
             display: none;
             padding: 12px;
-            border-radius: 8px;
             margin-bottom: 18px;
+            border-radius: 8px;
             font-size: 13px;
             line-height: 1.6;
             overflow-wrap: anywhere;
@@ -299,6 +319,8 @@
 
     <main class="login-wrapper">
 
+        <!-- LEFT SIDE -->
+
         <section class="login-intro">
 
             <div class="brand">
@@ -321,6 +343,8 @@
 
         </section>
 
+        <!-- RIGHT SIDE -->
+
         <section class="login-box">
 
             <div class="login-heading">
@@ -328,7 +352,12 @@
                 <p>Sign in to your account to continue shopping.</p>
             </div>
 
-            <div id="message" class="message" role="status"></div>
+            <div
+                id="message"
+                class="message"
+                role="status"
+                aria-live="polite"
+            ></div>
 
             <form id="buyerLoginForm">
 
@@ -338,6 +367,7 @@
                     <input
                         type="email"
                         id="email"
+                        name="email"
                         placeholder="Enter your email address"
                         autocomplete="email"
                         required
@@ -348,9 +378,11 @@
                     <label for="password">Password</label>
 
                     <div class="password-wrapper">
+
                         <input
                             type="password"
                             id="password"
+                            name="password"
                             placeholder="Enter your password"
                             autocomplete="current-password"
                             required
@@ -361,6 +393,7 @@
                             class="toggle-password"
                             id="togglePassword"
                         >Show</button>
+
                     </div>
                 </div>
 
@@ -388,13 +421,19 @@
             <div class="divider">Or continue with</div>
 
             <div class="social-buttons">
-                <button type="button" class="social-button" id="googleLogin">
-                    Google
-                </button>
 
-                <button type="button" class="social-button" id="appleLogin">
-                    Apple
-                </button>
+                <button
+                    type="button"
+                    class="social-button"
+                    id="googleLogin"
+                >Google</button>
+
+                <button
+                    type="button"
+                    class="social-button"
+                    id="appleLogin"
+                >Apple</button>
+
             </div>
 
             <p class="signup-text">
@@ -413,66 +452,70 @@
     </main>
 
     <script>
-        const form = document.getElementById("buyerLoginForm");
+        const loginForm = document.getElementById("buyerLoginForm");
         const emailInput = document.getElementById("email");
         const passwordInput = document.getElementById("password");
         const messageBox = document.getElementById("message");
 
-        function showMessage(message, type = "error") {
-            messageBox.textContent = message;
+        function showMessage(text, type) {
+            messageBox.textContent = text;
             messageBox.className = "message " + type;
         }
 
-        // Show or hide password
+        // Show / hide password
+
         document.getElementById("togglePassword").addEventListener(
             "click",
             function () {
-                const isHidden = passwordInput.type === "password";
+                const showPassword = passwordInput.type === "password";
 
-                passwordInput.type = isHidden ? "text" : "password";
-                this.textContent = isHidden ? "Hide" : "Show";
+                passwordInput.type = showPassword ? "text" : "password";
+                this.textContent = showPassword ? "Hide" : "Show";
             }
         );
 
-        // Read user information saved by registration
+        // Find registered user records in localStorage.
+        // The exact key and format must match the registration page.
+
         function getRegisteredUsers() {
             const users = [];
-            const keys = [
+            const storageKeys = [
                 "user",
                 "users",
                 "registeredUser",
                 "registeredUsers",
                 "buyer",
-                "buyers",
-                "currentUser"
+                "buyers"
             ];
 
-            keys.forEach(function (key) {
-                const raw = localStorage.getItem(key);
+            storageKeys.forEach(function (key) {
+                const savedValue = localStorage.getItem(key);
 
-                if (!raw) return;
+                if (!savedValue) {
+                    return;
+                }
 
                 try {
-                    const data = JSON.parse(raw);
+                    const parsed = JSON.parse(savedValue);
 
-                    if (Array.isArray(data)) {
-                        users.push(...data);
-                    } else if (data && typeof data === "object") {
-                        if (Array.isArray(data.users)) {
-                            users.push(...data.users);
+                    if (Array.isArray(parsed)) {
+                        users.push(...parsed);
+                    } else if (parsed && typeof parsed === "object") {
+                        if (Array.isArray(parsed.users)) {
+                            users.push(...parsed.users);
                         } else {
-                            users.push(data);
+                            users.push(parsed);
                         }
                     }
                 } catch (error) {
-                    // Ignore values that are not JSON.
+                    // Ignore values that are not JSON objects.
                 }
             });
 
             return users;
         }
 
-        function getUserEmail(user) {
+        function readEmail(user) {
             return String(
                 user.email ||
                 user.emailAddress ||
@@ -481,61 +524,72 @@
             ).trim().toLowerCase();
         }
 
-        function getUserPassword(user) {
-            return (
-                user.password ??
-                user.userPassword ??
-                user.pass ??
-                ""
-            );
+        function readPassword(user) {
+            return user.password ??
+                   user.userPassword ??
+                   user.pass ??
+                   "";
         }
 
-        // Login
-        form.addEventListener("submit", function (event) {
+        // Login form
+
+        loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const email = emailInput.value.trim().toLowerCase();
             const password = passwordInput.value;
 
             if (!email || !password) {
-                showMessage("Please enter your email and password.");
+                showMessage(
+                    "Please enter your email address and password.",
+                    "error"
+                );
                 return;
             }
 
-            const users = getRegisteredUsers();
+            const registeredUsers = getRegisteredUsers();
 
-            const matchedUser = users.find(function (user) {
+            const user = registeredUsers.find(function (item) {
                 return (
-                    getUserEmail(user) === email &&
-                    String(getUserPassword(user)) === password
+                    readEmail(item) === email &&
+                    String(readPassword(item)) === password
                 );
             });
 
-            if (!matchedUser) {
+            if (!user) {
                 showMessage(
-                    "Account not found. Please register first. If you already registered, your registration storage format may be different."
+                    "Account not found or password is incorrect. Please register first or check your details.",
+                    "error"
                 );
                 return;
             }
 
-            // Remember only the email, never the password.
+            // Store email only when Remember me is selected.
+            // Never save the password in rememberedEmail.
+
             if (document.getElementById("rememberMe").checked) {
                 localStorage.setItem("rememberedEmail", email);
             } else {
                 localStorage.removeItem("rememberedEmail");
             }
 
-            // Save the logged-in user for the frontend.
-            // Do not copy a password into the current-user record.
+            // Save basic current-user information without a password.
+
             const currentUser = {
-                name: matchedUser.name || matchedUser.fullName || "",
-                email: getUserEmail(matchedUser),
-                role: matchedUser.role || "buyer"
+                name: user.name || user.fullName || "",
+                email: readEmail(user),
+                role: user.role || "buyer"
             };
 
-            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            localStorage.setItem(
+                "currentUser",
+                JSON.stringify(currentUser)
+            );
 
-            showMessage("Login successful! Opening your shop...", "success");
+            showMessage(
+                "Login successful! Opening your shop...",
+                "success"
+            );
 
             setTimeout(function () {
                 window.location.href = "home.html";
@@ -543,6 +597,7 @@
         });
 
         // Restore remembered email
+
         const rememberedEmail = localStorage.getItem("rememberedEmail");
 
         if (rememberedEmail) {
@@ -550,37 +605,46 @@
             document.getElementById("rememberMe").checked = true;
         }
 
-        // Create account
+        // Registration page navigation
+
         document.getElementById("createAccount").addEventListener(
             "click",
             function () {
-                // Change this filename if your registration page has another name.
                 window.location.href = "register.html";
             }
         );
 
-        // Forgot password
+        // Forgot password placeholder
+
         document.getElementById("forgotPassword").addEventListener(
             "click",
             function () {
                 showMessage(
-                    "Password recovery is not connected yet. Please contact the shop administrator."
+                    "Password recovery is not connected yet. Please contact the shop administrator.",
+                    "error"
                 );
             }
         );
 
         // Social login placeholders
+
         document.getElementById("googleLogin").addEventListener(
             "click",
             function () {
-                showMessage("Google sign-in is not connected yet.");
+                showMessage(
+                    "Google sign-in is not connected yet.",
+                    "error"
+                );
             }
         );
 
         document.getElementById("appleLogin").addEventListener(
             "click",
             function () {
-                showMessage("Apple sign-in is not connected yet.");
+                showMessage(
+                    "Apple sign-in is not connected yet.",
+                    "error"
+                );
             }
         );
     </script>
