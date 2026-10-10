@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Seller Login | Dharshini Mart</title>
 
     <style>
@@ -26,21 +25,19 @@
         .seller-wrapper {
             width: 100%;
             max-width: 1050px;
-            min-height: 580px;
+            min-height: 570px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: white;
+            background: #fff;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
         }
 
-        /* LEFT PANEL */
-
         .seller-intro {
             padding: 45px;
             background: linear-gradient(145deg, #126b36, #27934d);
-            color: white;
+            color: #fff;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -49,7 +46,7 @@
         .brand {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 50px;
+            margin-bottom: 45px;
         }
 
         .brand span {
@@ -57,8 +54,8 @@
         }
 
         .seller-intro h1 {
-            font-size: 40px;
-            line-height: 1.25;
+            font-size: 38px;
+            line-height: 1.3;
             margin-bottom: 20px;
         }
 
@@ -74,7 +71,7 @@
         }
 
         .seller-points li {
-            margin: 17px 0;
+            margin: 16px 0;
             font-size: 15px;
         }
 
@@ -86,8 +83,6 @@
             color: #d5ff86;
         }
 
-        /* RIGHT PANEL */
-
         .seller-box {
             padding: 45px;
             display: flex;
@@ -95,19 +90,19 @@
             justify-content: center;
         }
 
-        .seller-heading {
-            margin-bottom: 30px;
-        }
-
-        .seller-heading .portal-label {
+        .portal-label {
             display: inline-block;
-            color: #218640;
-            background: #e9f7ec;
             padding: 7px 12px;
+            margin-bottom: 15px;
             border-radius: 20px;
+            background: #e9f7ec;
+            color: #218640;
             font-size: 12px;
             font-weight: bold;
-            margin-bottom: 15px;
+        }
+
+        .seller-heading {
+            margin-bottom: 28px;
         }
 
         .seller-heading h2 {
@@ -123,7 +118,7 @@
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -211,7 +206,6 @@
 
         .seller-login-button:hover {
             background: #176b32;
-            transform: translateY(-1px);
         }
 
         .message {
@@ -250,8 +244,8 @@
             display: block;
             text-align: center;
             margin-top: 22px;
-            text-decoration: none;
             color: #777;
+            text-decoration: none;
             font-size: 13px;
         }
 
@@ -274,7 +268,7 @@
             }
 
             .seller-intro h1 {
-                font-size: 30px;
+                font-size: 29px;
             }
 
             .seller-points,
@@ -293,13 +287,8 @@
 
     <main class="seller-wrapper">
 
-        <!-- LEFT SIDE -->
-
         <section class="seller-intro">
-
-            <div class="brand">
-                🥬 Dharshini <span>Mart</span>
-            </div>
+            <div class="brand">🥬 Dharshini <span>Mart</span></div>
 
             <h1>Grow your business.</h1>
 
@@ -318,35 +307,22 @@
             <div class="seller-tagline">
                 SELL · MANAGE · GROW
             </div>
-
         </section>
-
-        <!-- RIGHT SIDE -->
 
         <section class="seller-box">
 
             <div class="seller-heading">
                 <div class="portal-label">SELLER PORTAL</div>
-
                 <h2>Welcome Back!</h2>
-
-                <p>
-                    Sign in to your seller account to continue.
-                </p>
+                <p>Sign in to manage your seller account.</p>
             </div>
 
-            <div
-                id="sellerMessage"
-                class="message"
-                role="status"
-                aria-live="polite"
-            ></div>
+            <div id="sellerMessage" class="message" role="status"></div>
 
             <form id="sellerLoginForm">
 
                 <div class="form-group">
                     <label for="sellerEmail">Seller Email</label>
-
                     <input
                         type="email"
                         id="sellerEmail"
@@ -360,7 +336,6 @@
                     <label for="sellerPassword">Password</label>
 
                     <div class="password-wrapper">
-
                         <input
                             type="password"
                             id="sellerPassword"
@@ -374,12 +349,10 @@
                             class="toggle-password"
                             id="toggleSellerPassword"
                         >Show</button>
-
                     </div>
                 </div>
 
                 <div class="form-options">
-
                     <label class="remember">
                         <input type="checkbox" id="rememberSeller">
                         Remember me
@@ -390,7 +363,6 @@
                         class="forgot-button"
                         id="forgotSellerPassword"
                     >Forgot password?</button>
-
                 </div>
 
                 <button type="submit" class="seller-login-button">
@@ -400,7 +372,7 @@
             </form>
 
             <p class="seller-note">
-                ✓ Seller access is currently available as a frontend demonstration.
+                ✓ Seller access is available as a frontend demonstration.
             </p>
 
             <a href="index.html" class="back-link">
@@ -423,7 +395,6 @@
         }
 
         // Show / hide password
-
         document.getElementById("toggleSellerPassword").addEventListener(
             "click",
             function () {
@@ -434,18 +405,15 @@
             }
         );
 
-        // Restore remembered seller email
+        // Restore remembered email
+        const rememberedEmail = localStorage.getItem("rememberedSellerEmail");
 
-        const rememberedSellerEmail =
-            localStorage.getItem("rememberedSellerEmail");
-
-        if (rememberedSellerEmail) {
-            sellerEmail.value = rememberedSellerEmail;
+        if (rememberedEmail) {
+            sellerEmail.value = rememberedEmail;
             document.getElementById("rememberSeller").checked = true;
         }
 
         // Seller demo login
-
         sellerForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
@@ -466,9 +434,7 @@
                 localStorage.removeItem("rememberedSellerEmail");
             }
 
-            // Frontend demonstration only.
-            // This does not verify seller credentials.
-
+            // Frontend demonstration only. Credentials are not verified.
             localStorage.setItem("sellerUser", JSON.stringify({
                 email: email,
                 role: "seller"
@@ -480,13 +446,12 @@
             );
 
             setTimeout(function () {
-                // Change this filename if your dashboard has another name.
-                window.location.href = "seller-dashboard.html";
+                // Existing dashboard file in your project
+                window.location.href = "admin-dashboard.html";
             }, 700);
         });
 
         // Forgot password placeholder
-
         document.getElementById("forgotSellerPassword").addEventListener(
             "click",
             function () {
