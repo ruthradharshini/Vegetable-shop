@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Buyer Login | Dharshini Mart</title>
 
     <style>
@@ -15,11 +16,11 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #e8f5e9, #f8fff8);
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            background: linear-gradient(135deg, #e7f7e9, #f8fff8);
         }
 
         .login-wrapper {
@@ -29,15 +30,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             background: white;
-            border-radius: 22px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
         }
 
         .login-intro {
+            padding: 50px 40px;
             background: linear-gradient(145deg, #126b36, #27934d);
             color: white;
-            padding: 55px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -46,23 +47,22 @@
         .brand {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 55px;
+            margin-bottom: 45px;
         }
 
         .brand span {
-            color: #c5f36b;
+            color: #d5ff86;
         }
 
         .login-intro h1 {
-            font-size: 38px;
-            line-height: 1.25;
+            font-size: 36px;
+            line-height: 1.3;
             margin-bottom: 20px;
         }
 
         .login-intro p {
-            font-size: 16px;
             line-height: 1.8;
-            color: #e3f5e7;
+            color: #e7f5e9;
             margin-bottom: 25px;
         }
 
@@ -72,18 +72,17 @@
 
         .fresh-points li {
             margin: 15px 0;
-            font-size: 15px;
         }
 
         .login-box {
-            padding: 55px 45px;
+            padding: 45px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .login-heading {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .login-heading h2 {
@@ -104,25 +103,24 @@
 
         .form-group label {
             display: block;
-            font-weight: bold;
             font-size: 14px;
-            color: #333;
+            font-weight: bold;
             margin-bottom: 9px;
+            color: #333;
         }
 
         .form-group input {
             width: 100%;
             padding: 14px;
-            border: 1px solid #d8e0d9;
-            border-radius: 9px;
-            font-size: 15px;
+            border: 1px solid #d5ded6;
+            border-radius: 8px;
             outline: none;
-            transition: 0.3s;
+            font-size: 15px;
         }
 
         .form-group input:focus {
-            border-color: #239447;
-            box-shadow: 0 0 0 3px rgba(35, 148, 71, 0.1);
+            border-color: #238642;
+            box-shadow: 0 0 0 3px rgba(35, 134, 66, 0.1);
         }
 
         .password-wrapper {
@@ -130,7 +128,7 @@
         }
 
         .password-wrapper input {
-            padding-right: 75px;
+            padding-right: 65px;
         }
 
         .toggle-password {
@@ -139,8 +137,8 @@
             top: 50%;
             transform: translateY(-50%);
             border: none;
-            background: transparent;
-            color: #238642;
+            background: none;
+            color: #218640;
             cursor: pointer;
             font-weight: bold;
         }
@@ -150,7 +148,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 10px;
-            margin: 5px 0 25px;
+            margin-bottom: 24px;
             font-size: 13px;
         }
 
@@ -171,29 +169,22 @@
             color: #218640;
             cursor: pointer;
             font-size: 13px;
-            font-weight: bold;
-        }
-
-        .text-button:hover {
-            text-decoration: underline;
         }
 
         .login-button {
             width: 100%;
             padding: 15px;
-            border: none;
-            border-radius: 9px;
             background: #238642;
             color: white;
+            border: none;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .login-button:hover {
             background: #176b32;
-            transform: translateY(-1px);
         }
 
         .divider {
@@ -202,7 +193,7 @@
             gap: 12px;
             color: #999;
             font-size: 13px;
-            margin: 25px 0;
+            margin: 23px 0;
         }
 
         .divider::before,
@@ -220,16 +211,11 @@
         }
 
         .social-button {
-            padding: 12px 8px;
-            border: 1px solid #ddd;
+            padding: 12px;
             background: white;
+            border: 1px solid #ddd;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 13px;
-        }
-
-        .social-button:hover {
-            background: #f5faf5;
         }
 
         .signup-text {
@@ -250,14 +236,10 @@
         .back-link {
             display: block;
             text-align: center;
-            margin-top: 18px;
+            margin-top: 20px;
             color: #777;
             text-decoration: none;
             font-size: 13px;
-        }
-
-        .back-link:hover {
-            color: #218640;
         }
 
         .message {
@@ -266,7 +248,8 @@
             border-radius: 8px;
             margin-bottom: 18px;
             font-size: 13px;
-            line-height: 1.5;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
         }
 
         .message.error {
@@ -298,7 +281,7 @@
             }
 
             .login-intro h1 {
-                font-size: 29px;
+                font-size: 28px;
             }
 
             .fresh-points {
@@ -306,7 +289,7 @@
             }
 
             .login-box {
-                padding: 35px 25px;
+                padding: 30px 24px;
             }
         }
     </style>
@@ -317,13 +300,16 @@
     <main class="login-wrapper">
 
         <section class="login-intro">
-            <div class="brand">🥬 Dharshini <span>Mart</span></div>
+
+            <div class="brand">
+                🥬 Dharshini <span>Mart</span>
+            </div>
 
             <h1>Freshness delivered to your doorstep.</h1>
 
             <p>
-                Welcome to Dharshini Mart! Shop fresh vegetables and
-                everyday essentials from the comfort of your home.
+                Welcome to Dharshini Mart! Shop fresh vegetables
+                and everyday essentials from the comfort of your home.
             </p>
 
             <ul class="fresh-points">
@@ -332,6 +318,7 @@
                 <li>🚚 Convenient home delivery</li>
                 <li>💚 A simple shopping experience</li>
             </ul>
+
         </section>
 
         <section class="login-box">
@@ -347,6 +334,7 @@
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
+
                     <input
                         type="email"
                         id="email"
@@ -377,6 +365,7 @@
                 </div>
 
                 <div class="form-options">
+
                     <label class="remember">
                         <input type="checkbox" id="rememberMe">
                         Remember me
@@ -387,6 +376,7 @@
                         class="text-button"
                         id="forgotPassword"
                     >Forgot password?</button>
+
                 </div>
 
                 <button type="submit" class="login-button">
@@ -423,77 +413,133 @@
     </main>
 
     <script>
-        const loginForm = document.getElementById("buyerLoginForm");
+        const form = document.getElementById("buyerLoginForm");
         const emailInput = document.getElementById("email");
         const passwordInput = document.getElementById("password");
-        const togglePassword = document.getElementById("togglePassword");
         const messageBox = document.getElementById("message");
 
-        function showMessage(message, type) {
+        function showMessage(message, type = "error") {
             messageBox.textContent = message;
             messageBox.className = "message " + type;
         }
 
         // Show or hide password
-        togglePassword.addEventListener("click", function () {
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                togglePassword.textContent = "Hide";
-            } else {
-                passwordInput.type = "password";
-                togglePassword.textContent = "Show";
-            }
-        });
+        document.getElementById("togglePassword").addEventListener(
+            "click",
+            function () {
+                const isHidden = passwordInput.type === "password";
 
-        // Demo login
-        loginForm.addEventListener("submit", function (event) {
+                passwordInput.type = isHidden ? "text" : "password";
+                this.textContent = isHidden ? "Hide" : "Show";
+            }
+        );
+
+        // Read user information saved by registration
+        function getRegisteredUsers() {
+            const users = [];
+            const keys = [
+                "user",
+                "users",
+                "registeredUser",
+                "registeredUsers",
+                "buyer",
+                "buyers",
+                "currentUser"
+            ];
+
+            keys.forEach(function (key) {
+                const raw = localStorage.getItem(key);
+
+                if (!raw) return;
+
+                try {
+                    const data = JSON.parse(raw);
+
+                    if (Array.isArray(data)) {
+                        users.push(...data);
+                    } else if (data && typeof data === "object") {
+                        if (Array.isArray(data.users)) {
+                            users.push(...data.users);
+                        } else {
+                            users.push(data);
+                        }
+                    }
+                } catch (error) {
+                    // Ignore values that are not JSON.
+                }
+            });
+
+            return users;
+        }
+
+        function getUserEmail(user) {
+            return String(
+                user.email ||
+                user.emailAddress ||
+                user.username ||
+                ""
+            ).trim().toLowerCase();
+        }
+
+        function getUserPassword(user) {
+            return (
+                user.password ??
+                user.userPassword ??
+                user.pass ??
+                ""
+            );
+        }
+
+        // Login
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const email = emailInput.value.trim();
+            const email = emailInput.value.trim().toLowerCase();
             const password = passwordInput.value;
 
             if (!email || !password) {
-                showMessage("Please enter your email and password.", "error");
+                showMessage("Please enter your email and password.");
                 return;
             }
 
-            /*
-              DEMO ONLY:
-              This checks the user details stored by your registration page.
-              Real authentication requires a backend server.
-            */
+            const users = getRegisteredUsers();
 
-            let savedUser = null;
-
-            try {
-                savedUser = JSON.parse(localStorage.getItem("user"));
-            } catch (error) {
-                savedUser = null;
-            }
-
-            if (
-                savedUser &&
-                (savedUser.email || "").toLowerCase() === email.toLowerCase() &&
-                savedUser.password === password
-            ) {
-                if (document.getElementById("rememberMe").checked) {
-                    localStorage.setItem("rememberedEmail", email);
-                } else {
-                    localStorage.removeItem("rememberedEmail");
-                }
-
-                showMessage("Login successful! Opening your shop...", "success");
-
-                setTimeout(function () {
-                    window.location.href = "home.html";
-                }, 800);
-
-            } else {
-                showMessage(
-                    "Account not found or password is incorrect. Please register first or check your details.",
-                    "error"
+            const matchedUser = users.find(function (user) {
+                return (
+                    getUserEmail(user) === email &&
+                    String(getUserPassword(user)) === password
                 );
+            });
+
+            if (!matchedUser) {
+                showMessage(
+                    "Account not found. Please register first. If you already registered, your registration storage format may be different."
+                );
+                return;
             }
+
+            // Remember only the email, never the password.
+            if (document.getElementById("rememberMe").checked) {
+                localStorage.setItem("rememberedEmail", email);
+            } else {
+                localStorage.removeItem("rememberedEmail");
+            }
+
+            // Save the logged-in user for the frontend.
+            // Do not copy a password into the current-user record.
+            const currentUser = {
+                name: matchedUser.name || matchedUser.fullName || "",
+                email: getUserEmail(matchedUser),
+                role: matchedUser.role || "buyer"
+            };
+
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+            showMessage("Login successful! Opening your shop...", "success");
+
+            setTimeout(function () {
+                window.location.href = "home.html";
+            }, 700);
         });
 
         // Restore remembered email
@@ -504,40 +550,39 @@
             document.getElementById("rememberMe").checked = true;
         }
 
-        // Forgot password demo
-        document.getElementById("forgotPassword").addEventListener("click", function () {
-            showMessage(
-                "Password recovery is not connected yet. Please contact the shop administrator.",
-                "error"
-            );
-        });
-
-        // Registration navigation
-        document.getElementById("createAccount").addEventListener("click", function () {
-            if (document.getElementById("register.html")) {
+        // Create account
+        document.getElementById("createAccount").addEventListener(
+            "click",
+            function () {
+                // Change this filename if your registration page has another name.
                 window.location.href = "register.html";
-            } else {
+            }
+        );
+
+        // Forgot password
+        document.getElementById("forgotPassword").addEventListener(
+            "click",
+            function () {
                 showMessage(
-                    "Registration page is not connected yet. Please add your registration page.",
-                    "error"
+                    "Password recovery is not connected yet. Please contact the shop administrator."
                 );
             }
-        });
+        );
 
-        // Demo social login buttons
-        document.getElementById("googleLogin").addEventListener("click", function () {
-            showMessage(
-                "Google sign-in is not connected yet.",
-                "error"
-            );
-        });
+        // Social login placeholders
+        document.getElementById("googleLogin").addEventListener(
+            "click",
+            function () {
+                showMessage("Google sign-in is not connected yet.");
+            }
+        );
 
-        document.getElementById("appleLogin").addEventListener("click", function () {
-            showMessage(
-                "Apple sign-in is not connected yet.",
-                "error"
-            );
-        });
+        document.getElementById("appleLogin").addEventListener(
+            "click",
+            function () {
+                showMessage("Apple sign-in is not connected yet.");
+            }
+        );
     </script>
 
 </body>
