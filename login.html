@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Buyer Login | Dharshini Mart</title>
 
     <style>
@@ -16,31 +15,29 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #e8f5e9, #f6fff6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f5e9, #f6fff6);
         }
 
         .login-wrapper {
             width: 100%;
             max-width: 1000px;
-            min-height: 580px;
+            min-height: 570px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            background: #ffffff;
+            background: #fff;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
         }
 
-        /* LEFT PANEL */
-
         .login-intro {
-            background: linear-gradient(145deg, #126b36, #27934d);
-            color: white;
             padding: 45px;
+            color: #fff;
+            background: linear-gradient(145deg, #126b36, #27934d);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -49,7 +46,7 @@
         .brand {
             font-size: 28px;
             font-weight: bold;
-            margin-bottom: 55px;
+            margin-bottom: 45px;
         }
 
         .brand span {
@@ -57,15 +54,15 @@
         }
 
         .login-intro h1 {
-            font-size: 38px;
+            font-size: 36px;
             line-height: 1.3;
             margin-bottom: 20px;
         }
 
         .login-intro p {
+            color: #e6f5e9;
             font-size: 15px;
             line-height: 1.8;
-            color: #e6f5e9;
             margin-bottom: 25px;
         }
 
@@ -77,8 +74,6 @@
             margin: 16px 0;
             font-size: 15px;
         }
-
-        /* RIGHT PANEL */
 
         .login-box {
             padding: 45px;
@@ -99,7 +94,7 @@
 
         .login-heading p {
             font-size: 14px;
-            color: #777777;
+            color: #777;
             line-height: 1.6;
         }
 
@@ -112,7 +107,7 @@
             margin-bottom: 9px;
             font-size: 14px;
             font-weight: bold;
-            color: #333333;
+            color: #333;
         }
 
         .form-group input {
@@ -122,7 +117,6 @@
             border-radius: 8px;
             outline: none;
             font-size: 15px;
-            background: #ffffff;
         }
 
         .form-group input:focus {
@@ -163,7 +157,7 @@
             display: flex;
             align-items: center;
             gap: 7px;
-            color: #555555;
+            color: #555;
         }
 
         .remember input {
@@ -178,21 +172,16 @@
             cursor: pointer;
         }
 
-        .text-button:hover {
-            text-decoration: underline;
-        }
-
         .login-button {
             width: 100%;
             padding: 15px;
             border: none;
             border-radius: 8px;
             background: #238642;
-            color: #ffffff;
+            color: #fff;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.2s;
         }
 
         .login-button:hover {
@@ -203,7 +192,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #999999;
+            color: #999;
             font-size: 13px;
             margin: 25px 0;
         }
@@ -211,8 +200,8 @@
         .divider::before,
         .divider::after {
             content: "";
-            height: 1px;
             flex: 1;
+            height: 1px;
             background: #e5e5e5;
         }
 
@@ -224,20 +213,16 @@
 
         .social-button {
             padding: 12px;
-            background: white;
-            border: 1px solid #dddddd;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 8px;
             cursor: pointer;
-        }
-
-        .social-button:hover {
-            background: #f5faf5;
         }
 
         .signup-text {
             text-align: center;
             margin-top: 25px;
-            color: #666666;
+            color: #666;
             font-size: 14px;
         }
 
@@ -253,13 +238,9 @@
             display: block;
             text-align: center;
             margin-top: 20px;
-            color: #777777;
+            color: #777;
             text-decoration: none;
             font-size: 13px;
-        }
-
-        .back-link:hover {
-            color: #218640;
         }
 
         .message {
@@ -269,7 +250,6 @@
             border-radius: 8px;
             font-size: 13px;
             line-height: 1.6;
-            overflow-wrap: anywhere;
         }
 
         .message.error {
@@ -319,13 +299,8 @@
 
     <main class="login-wrapper">
 
-        <!-- LEFT SIDE -->
-
         <section class="login-intro">
-
-            <div class="brand">
-                🥬 Dharshini <span>Mart</span>
-            </div>
+            <div class="brand">🥬 Dharshini <span>Mart</span></div>
 
             <h1>Freshness delivered to your doorstep.</h1>
 
@@ -340,10 +315,7 @@
                 <li>🚚 Convenient home delivery</li>
                 <li>💚 A simple shopping experience</li>
             </ul>
-
         </section>
-
-        <!-- RIGHT SIDE -->
 
         <section class="login-box">
 
@@ -352,22 +324,15 @@
                 <p>Sign in to your account to continue shopping.</p>
             </div>
 
-            <div
-                id="message"
-                class="message"
-                role="status"
-                aria-live="polite"
-            ></div>
+            <div id="message" class="message" role="status"></div>
 
             <form id="buyerLoginForm">
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-
                     <input
                         type="email"
                         id="email"
-                        name="email"
                         placeholder="Enter your email address"
                         autocomplete="email"
                         required
@@ -378,11 +343,9 @@
                     <label for="password">Password</label>
 
                     <div class="password-wrapper">
-
                         <input
                             type="password"
                             id="password"
-                            name="password"
                             placeholder="Enter your password"
                             autocomplete="current-password"
                             required
@@ -393,12 +356,10 @@
                             class="toggle-password"
                             id="togglePassword"
                         >Show</button>
-
                     </div>
                 </div>
 
                 <div class="form-options">
-
                     <label class="remember">
                         <input type="checkbox" id="rememberMe">
                         Remember me
@@ -409,7 +370,6 @@
                         class="text-button"
                         id="forgotPassword"
                     >Forgot password?</button>
-
                 </div>
 
                 <button type="submit" class="login-button">
@@ -421,19 +381,13 @@
             <div class="divider">Or continue with</div>
 
             <div class="social-buttons">
+                <button type="button" class="social-button" id="googleLogin">
+                    Google
+                </button>
 
-                <button
-                    type="button"
-                    class="social-button"
-                    id="googleLogin"
-                >Google</button>
-
-                <button
-                    type="button"
-                    class="social-button"
-                    id="appleLogin"
-                >Apple</button>
-
+                <button type="button" class="social-button" id="appleLogin">
+                    Apple
+                </button>
             </div>
 
             <p class="signup-text">
@@ -452,7 +406,7 @@
     </main>
 
     <script>
-        const loginForm = document.getElementById("buyerLoginForm");
+        const form = document.getElementById("buyerLoginForm");
         const emailInput = document.getElementById("email");
         const passwordInput = document.getElementById("password");
         const messageBox = document.getElementById("message");
@@ -463,83 +417,24 @@
         }
 
         // Show / hide password
-
         document.getElementById("togglePassword").addEventListener(
             "click",
             function () {
-                const showPassword = passwordInput.type === "password";
+                const isPassword = passwordInput.type === "password";
 
-                passwordInput.type = showPassword ? "text" : "password";
-                this.textContent = showPassword ? "Hide" : "Show";
+                passwordInput.type = isPassword ? "text" : "password";
+                this.textContent = isPassword ? "Hide" : "Show";
             }
         );
 
-        // Find registered user records in localStorage.
-        // The exact key and format must match the registration page.
-
-        function getRegisteredUsers() {
-            const users = [];
-            const storageKeys = [
-                "user",
-                "users",
-                "registeredUser",
-                "registeredUsers",
-                "buyer",
-                "buyers"
-            ];
-
-            storageKeys.forEach(function (key) {
-                const savedValue = localStorage.getItem(key);
-
-                if (!savedValue) {
-                    return;
-                }
-
-                try {
-                    const parsed = JSON.parse(savedValue);
-
-                    if (Array.isArray(parsed)) {
-                        users.push(...parsed);
-                    } else if (parsed && typeof parsed === "object") {
-                        if (Array.isArray(parsed.users)) {
-                            users.push(...parsed.users);
-                        } else {
-                            users.push(parsed);
-                        }
-                    }
-                } catch (error) {
-                    // Ignore values that are not JSON objects.
-                }
-            });
-
-            return users;
-        }
-
-        function readEmail(user) {
-            return String(
-                user.email ||
-                user.emailAddress ||
-                user.username ||
-                ""
-            ).trim().toLowerCase();
-        }
-
-        function readPassword(user) {
-            return user.password ??
-                   user.userPassword ??
-                   user.pass ??
-                   "";
-        }
-
-        // Login form
-
-        loginForm.addEventListener("submit", function (event) {
+        // Demo login: accepts any non-empty email and password.
+        // This does not verify a registered account.
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const email = emailInput.value.trim().toLowerCase();
-            const password = passwordInput.value;
+            const email = emailInput.value.trim();
 
-            if (!email || !password) {
+            if (!email || !passwordInput.value) {
                 showMessage(
                     "Please enter your email address and password.",
                     "error"
@@ -547,44 +442,17 @@
                 return;
             }
 
-            const registeredUsers = getRegisteredUsers();
-
-            const user = registeredUsers.find(function (item) {
-                return (
-                    readEmail(item) === email &&
-                    String(readPassword(item)) === password
-                );
-            });
-
-            if (!user) {
-                showMessage(
-                    "Account not found or password is incorrect. Please register first or check your details.",
-                    "error"
-                );
-                return;
-            }
-
-            // Store email only when Remember me is selected.
-            // Never save the password in rememberedEmail.
-
             if (document.getElementById("rememberMe").checked) {
                 localStorage.setItem("rememberedEmail", email);
             } else {
                 localStorage.removeItem("rememberedEmail");
             }
 
-            // Save basic current-user information without a password.
-
-            const currentUser = {
-                name: user.name || user.fullName || "",
-                email: readEmail(user),
-                role: user.role || "buyer"
-            };
-
-            localStorage.setItem(
-                "currentUser",
-                JSON.stringify(currentUser)
-            );
+            // Store basic session information, not the password.
+            localStorage.setItem("currentUser", JSON.stringify({
+                email: email,
+                role: "buyer"
+            }));
 
             showMessage(
                 "Login successful! Opening your shop...",
@@ -593,11 +461,10 @@
 
             setTimeout(function () {
                 window.location.href = "home.html";
-            }, 700);
+            }, 500);
         });
 
         // Restore remembered email
-
         const rememberedEmail = localStorage.getItem("rememberedEmail");
 
         if (rememberedEmail) {
@@ -605,8 +472,7 @@
             document.getElementById("rememberMe").checked = true;
         }
 
-        // Registration page navigation
-
+        // Registration navigation
         document.getElementById("createAccount").addEventListener(
             "click",
             function () {
@@ -615,36 +481,28 @@
         );
 
         // Forgot password placeholder
-
         document.getElementById("forgotPassword").addEventListener(
             "click",
             function () {
                 showMessage(
-                    "Password recovery is not connected yet. Please contact the shop administrator.",
+                    "Password recovery is not connected yet.",
                     "error"
                 );
             }
         );
 
         // Social login placeholders
-
         document.getElementById("googleLogin").addEventListener(
             "click",
             function () {
-                showMessage(
-                    "Google sign-in is not connected yet.",
-                    "error"
-                );
+                showMessage("Google sign-in is not connected yet.", "error");
             }
         );
 
         document.getElementById("appleLogin").addEventListener(
             "click",
             function () {
-                showMessage(
-                    "Apple sign-in is not connected yet.",
-                    "error"
-                );
+                showMessage("Apple sign-in is not connected yet.", "error");
             }
         );
     </script>
