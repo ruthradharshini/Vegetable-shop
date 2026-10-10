@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini Mart | Welcome</title>
+
+    <style>
+        :root {
+            --green: #216442;
+            --dark-green: #173f2b;
+            --light-green: #eaf4e8;
+            --gold: #c49a3a;
+            --text: #20372a;
+            --muted: #68766b;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    #e0efda 0,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 75%,
+                    #f5ecd4 0,
+                    transparent 25%
+                ),
+                #f7faf5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+
+        .header {
+            min-height: 82px;
+            padding: 17px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e2eadf;
+            box-shadow: 0 4px 20px rgba(25, 60, 35, 0.04);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--green);
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            background: var(--light-green);
+            border-radius: 15px;
+            font-size: 28px;
+        }
+
+        .header-tagline {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* MAIN */
+
+        .landing {
+            width: 100%;
+            flex: 1;
+        }
+
+        .welcome-section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 70px 25px 55px;
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .small-title {
+            display: inline-block;
+            margin-bottom: 22px;
+            padding: 10px 17px;
+            border: 1px solid #d4e5cf;
+            border-radius: 30px;
+            background: #edf6e9;
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .welcome-text h1 {
+            font-size: clamp(36px, 5vw, 59px);
+            line-height: 1.13;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .welcome-text h1 span {
+            display: block;
+            color: var(--green);
+        }
+
+        .description {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* LOGIN CARDS */
+
+        .role-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .role-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 335px;
+            padding: 30px 27px 27px;
+            background: var(--white);
+            border: 1px solid #e1eadc;
+            border-radius: 22px;
+            box-shadow: 0 12px 35px rgba(34, 70, 42, 0.06);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-7px);
+            border-color: #b9d3b4;
+            box-shadow: 0 20px 45px rgba(34, 70, 42, 0.12);
+        }
+
+        .role-icon {
+            width: 72px;
+            height: 72px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 22px;
+            border-radius: 20px;
+            background: var(--light-green);
+            font-size: 36px;
+        }
+
+        .seller-card .role-icon {
+            background: #fbf1d9;
+        }
+
+        .admin-card .role-icon {
+            background: #e9edf4;
+        }
+
+        .card-label {
+            margin-bottom: 9px;
+            color: var(--green);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+        }
+
+        .seller-card .card-label {
+            color: #9a7424;
+        }
+
+        .admin-card .card-label {
+            color: #53637d;
+        }
+
+        .role-card h2 {
+            margin-bottom: 11px;
+            font-size: 24px;
+            color: var(--text);
+        }
+
+        .role-card p {
+            margin-bottom: 25px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .role-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 49px;
+            margin-top: auto;
+            padding: 13px 16px;
+            border-radius: 11px;
+            background: var(--green);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 800;
+            text-align: center;
+            transition: background 0.2s ease;
+        }
+
+        .role-button:hover {
+            background: var(--dark-green);
+        }
+
+        .seller-card .role-button {
+            background: #a77d24;
+        }
+
+        .seller-card .role-button:hover {
+            background: #87631c;
+        }
+
+        .admin-card .role-button {
+            background: #263b30;
+        }
+
+        .admin-card .role-button:hover {
+            background: #17281f;
+        }
+
+        .role-button:focus-visible {
+            outline: 3px solid #9bc9a4;
+            outline-offset: 3px;
+        }
+
+        /* BENEFITS */
+
+        .benefits {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 38px;
+            color: #526b57;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .benefits span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 24px 20px;
+            background: #1b3526;
+            color: #dbe8dc;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .footer strong {
+            color: white;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 850px) {
+            .welcome-section {
+                padding-top: 50px;
+            }
+
+            .role-container {
+                grid-template-columns: 1fr;
+                max-width: 470px;
+                margin: auto;
+            }
+
+            .role-card {
+                min-height: auto;
+            }
+
+            .header-tagline {
+                display: none;
+            }
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 14px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 24px;
+            }
+
+            .welcome-section {
+                padding: 42px 18px;
+            }
+
+            .welcome-text h1 {
+                letter-spacing: -1px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .role-card {
+                padding: 25px 22px;
+            }
+
+            .benefits {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <a class="logo" href="index.html">
+            <span class="logo-icon">🥬</span>
+            <span>Dharshini Mart</span>
+        </a>
+
+        <div class="header-tagline">
+            Freshness at your doorstep
+        </div>
+
+    </header>
+
+
+    <!-- MAIN LANDING PAGE -->
+
+    <main class="landing">
+
+        <section class="welcome-section">
+
+            <div class="welcome-text">
+
+                <p class="small-title">
+                    🌿 WELCOME TO DHARSHINI MART
+                </p>
+
+                <h1>
+                    Fresh vegetables,
+                    <span>fresh choices.</span>
+                </h1>
+
+                <p class="description">
+                    Welcome to your one-stop destination for fresh vegetables
+                    and everyday essentials. Choose your account type to
+                    explore the marketplace.
+                </p>
+
+            </div>
+
+
+            <!-- ROLE SELECTION -->
+
+            <div class="role-container">
+
+                <!-- BUYER -->
+
+                <article class="role-card buyer-card">
+
+                    <div class="role-icon">🛒</div>
+
+                    <span class="card-label">
+                        Shop fresh today
+                    </span>
+
+                    <h2>Buyer Login</h2>
+
+                    <p>
+                        Explore fresh vegetables, discover your favourite
+                        products, add items to your cart and manage orders.
+                    </p>
+
+                    <a href="login.html" class="role-button">
+                        Continue as Buyer <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- SELLER -->
+
+                <article class="role-card seller-card">
+
+                    <div class="role-icon">🏪</div>
+
+                    <span class="card-label">
+                        Seller workspace
+                    </span>
+
+                    <h2>Seller Login</h2>
+
+                    <p>
+                        Manage product listings, update availability
+                        and keep track of your store's sales.
+                    </p>
+
+                    <a href="seller-login.html" class="role-button">
+                        Continue as Seller <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- ADMIN -->
+
+                <article class="role-card admin-card">
+
+                    <div class="role-icon">👑</div>
+
+                    <span class="card-label">
+                        Store management
+                    </span>
+
+                    <h2>Admin Login</h2>
+
+                    <p>
+                        Manage products, review customer orders,
+                        update order statuses and oversee store activity.
+                    </p>
+
+                    <a href="admin-login.html" class="role-button">
+                        Continue as Admin <span>→</span>
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <!-- BENEFITS -->
+
+            <div class="benefits">
+
+                <span>🌱 Fresh products</span>
+                <span>🔐 Account access</span>
+                <span>🧺 Easy shopping</span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <p>
+            <strong>🥬 Dharshini Mart</strong>
+            · Fresh choices for everyday living.
+        </p>
+
+        <p>
+            © 2026 Dharshini Mart. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

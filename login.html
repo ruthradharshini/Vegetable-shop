@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Login | Dharshini Mart</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8f5e9, #f6fff6);
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .login-intro {
+            padding: 45px;
+            color: #fff;
+            background: linear-gradient(145deg, #126b36, #27934d);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 45px;
+        }
+
+        .brand span {
+            color: #d5ff86;
+        }
+
+        .login-intro h1 {
+            font-size: 36px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .login-intro p {
+            color: #e6f5e9;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .fresh-points {
+            list-style: none;
+        }
+
+        .fresh-points li {
+            margin: 16px 0;
+            font-size: 15px;
+        }
+
+        .login-box {
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-heading {
+            margin-bottom: 28px;
+        }
+
+        .login-heading h2 {
+            font-size: 30px;
+            color: #183b25;
+            margin-bottom: 10px;
+        }
+
+        .login-heading p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d8e0d9;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .form-group input:focus {
+            border-color: #238642;
+            box-shadow: 0 0 0 3px rgba(35, 134, 66, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 70px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #218640;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #555;
+        }
+
+        .remember input {
+            accent-color: #238642;
+        }
+
+        .text-button {
+            border: none;
+            background: transparent;
+            color: #218640;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #238642;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: #176b32;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #999;
+            font-size: 13px;
+            margin: 25px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e5e5e5;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .social-button {
+            padding: 12px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .signup-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .signup-text button {
+            border: none;
+            background: transparent;
+            color: #218640;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .message.error {
+            display: block;
+            color: #a32121;
+            background: #fff0f0;
+            border: 1px solid #ffd0d0;
+        }
+
+        .message.success {
+            display: block;
+            color: #176b32;
+            background: #effaf0;
+            border: 1px solid #c9ebce;
+        }
+
+        @media (max-width: 700px) {
+            .login-wrapper {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .login-intro {
+                padding: 30px;
+            }
+
+            .brand {
+                margin-bottom: 25px;
+            }
+
+            .login-intro h1 {
+                font-size: 28px;
+            }
+
+            .fresh-points {
+                display: none;
+            }
+
+            .login-box {
+                padding: 30px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login-wrapper">
+
+        <section class="login-intro">
+            <div class="brand">🥬 Dharshini <span>Mart</span></div>
+
+            <h1>Freshness delivered to your doorstep.</h1>
+
+            <p>
+                Welcome to Dharshini Mart! Shop fresh vegetables
+                and everyday essentials from the comfort of your home.
+            </p>
+
+            <ul class="fresh-points">
+                <li>🌿 Fresh and quality vegetables</li>
+                <li>🛒 Easy and convenient shopping</li>
+                <li>🚚 Convenient home delivery</li>
+                <li>💚 A simple shopping experience</li>
+            </ul>
+        </section>
+
+        <section class="login-box">
+
+            <div class="login-heading">
+                <h2>Welcome Back!</h2>
+                <p>Sign in to your account to continue shopping.</p>
+            </div>
+
+            <div id="message" class="message" role="status"></div>
+
+            <form id="buyerLoginForm">
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                        >Show</button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+
+                    <button
+                        type="button"
+                        class="text-button"
+                        id="forgotPassword"
+                    >Forgot password?</button>
+                </div>
+
+                <button type="submit" class="login-button">
+                    Sign In
+                </button>
+
+            </form>
+
+            <div class="divider">Or continue with</div>
+
+            <div class="social-buttons">
+                <button type="button" class="social-button" id="googleLogin">
+                    Google
+                </button>
+
+                <button type="button" class="social-button" id="appleLogin">
+                    Apple
+                </button>
+            </div>
+
+            <p class="signup-text">
+                Don't have an account?
+                <button type="button" id="createAccount">
+                    Create Account
+                </button>
+            </p>
+
+            <a href="index.html" class="back-link">
+                ← Back to role selection
+            </a>
+
+        </section>
+
+    </main>
+
+    <script>
+        const form = document.getElementById("buyerLoginForm");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const messageBox = document.getElementById("message");
+
+        function showMessage(text, type) {
+            messageBox.textContent = text;
+            messageBox.className = "message " + type;
+        }
+
+        // Show / hide password
+        document.getElementById("togglePassword").addEventListener(
+            "click",
+            function () {
+                const isPassword = passwordInput.type === "password";
+
+                passwordInput.type = isPassword ? "text" : "password";
+                this.textContent = isPassword ? "Hide" : "Show";
+            }
+        );
+
+        // Demo login: accepts any non-empty email and password.
+        // This does not verify a registered account.
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = emailInput.value.trim();
+
+            if (!email || !passwordInput.value) {
+                showMessage(
+                    "Please enter your email address and password.",
+                    "error"
+                );
+                return;
+            }
+
+            if (document.getElementById("rememberMe").checked) {
+                localStorage.setItem("rememberedEmail", email);
+            } else {
+                localStorage.removeItem("rememberedEmail");
+            }
+
+            // Store basic session information, not the password.
+            localStorage.setItem("currentUser", JSON.stringify({
+                email: email,
+                role: "buyer"
+            }));
+
+            showMessage(
+                "Login successful! Opening your shop...",
+                "success"
+            );
+
+            setTimeout(function () {
+                window.location.href = "home.html";
+            }, 500);
+        });
+
+        // Restore remembered email
+        const rememberedEmail = localStorage.getItem("rememberedEmail");
+
+        if (rememberedEmail) {
+            emailInput.value = rememberedEmail;
+            document.getElementById("rememberMe").checked = true;
+        }
+
+        // Registration navigation
+        document.getElementById("createAccount").addEventListener(
+            "click",
+            function () {
+                window.location.href = "register.html";
+            }
+        );
+
+        // Forgot password placeholder
+        document.getElementById("forgotPassword").addEventListener(
+            "click",
+            function () {
+                showMessage(
+                    "Password recovery is not connected yet.",
+                    "error"
+                );
+            }
+        );
+
+        // Social login placeholders
+        document.getElementById("googleLogin").addEventListener(
+            "click",
+            function () {
+                showMessage("Google sign-in is not connected yet.", "error");
+            }
+        );
+
+        document.getElementById("appleLogin").addEventListener(
+            "click",
+            function () {
+                showMessage("Apple sign-in is not connected yet.", "error");
+            }
+        );
+    </script>
+
+</body>
+</html>

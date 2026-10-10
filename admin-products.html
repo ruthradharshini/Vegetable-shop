@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini Mart | Product Management</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f5;
+            color: #26382c;
+        }
+
+        header {
+            background: #20372a;
+            color: white;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #d9b75d;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .heading {
+            margin-bottom: 30px;
+        }
+
+        .heading p {
+            color: #b18a35;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .heading h1 {
+            font-size: 40px;
+            color: #20372a;
+            margin-bottom: 8px;
+        }
+
+        .heading span {
+            color: #737b74;
+        }
+
+        /* ADD PRODUCT */
+
+        .form-card {
+            background: white;
+            border: 1px solid #e0e5df;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .form-card h2 {
+            color: #20372a;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .input-box label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #59655c;
+        }
+
+        .input-box input,
+        .input-box select {
+            width: 100%;
+            padding: 12px;
+
+            border: 1px solid #d7ded7;
+            border-radius: 8px;
+
+            font-size: 14px;
+            outline: none;
+        }
+
+        .input-box input:focus,
+        .input-box select:focus {
+            border-color: #216442;
+        }
+
+        .add-btn {
+            margin-top: 18px;
+
+            padding: 12px 22px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #216442;
+            color: white;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .add-btn:hover {
+            background: #174d31;
+        }
+
+        /* PRODUCTS */
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .products-header h2 {
+            color: #20372a;
+        }
+
+        .product-count {
+            color: #737b74;
+            font-size: 13px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e0e5df;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .product-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #f1f6f1;
+            border-radius: 12px;
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            color: #20372a;
+            margin-bottom: 8px;
+        }
+
+        .category {
+            color: #788078;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #216442;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .stock {
+            font-size: 12px;
+            padding: 6px 9px;
+            border-radius: 15px;
+            background: #e7f5e9;
+            color: #28713c;
+        }
+
+        .out-stock {
+            background: #ffe4e4;
+            color: #b52b2b;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            flex: 1;
+            padding: 9px;
+
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .edit-btn {
+            border: 1px solid #216442;
+            background: white;
+            color: #216442;
+        }
+
+        .delete-btn {
+            border: 1px solid #c03939;
+            background: white;
+            color: #c03939;
+        }
+
+        .edit-btn:hover {
+            background: #eef7f0;
+        }
+
+        .delete-btn:hover {
+            background: #fff0f0;
+        }
+
+        .empty {
+            background: white;
+            border: 1px solid #e0e5df;
+            border-radius: 15px;
+            padding: 50px;
+            text-align: center;
+            color: #777;
+        }
+
+        footer {
+            margin-top: 60px;
+            background: #182e22;
+            color: #dce5dd;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            🥬 Dharshini Mart — Admin
+        </div>
+
+        <nav>
+
+            <a href="admin-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="admin-orders.html">
+                Orders
+            </a>
+
+            <a href="admin-products.html">
+                Products
+            </a>
+
+            <a href="home.html">
+                Store
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <div class="heading">
+
+            <p>
+                ADMIN PANEL
+            </p>
+
+            <h1>
+                Product Management
+            </h1>
+
+            <span>
+                Add, edit and manage products in Dharshini Mart.
+            </span>
+
+        </div>
+
+
+
+        <!-- ADD PRODUCT -->
+
+        <section class="form-card">
+
+            <h2>
+                ➕ Add New Product
+            </h2>
+
+
+            <div class="form-grid">
+
+
+                <div class="input-box">
+
+                    <label>
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        placeholder="Example: Carrot"
+                    >
+
+                </div>
+
+
+
+                <div class="input-box">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select id="productCategory">
+
+                        <option value="Vegetables">
+                            Vegetables
+                        </option>
+
+                        <option value="Fruits">
+                            Fruits
+                        </option>
+
+                        <option value="Leafy Greens">
+                            Leafy Greens
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="input-box">
+
+                    <label>
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        placeholder="Example: 50"
+                    >
+
+                </div>
+
+
+
+                <div class="input-box">
+
+                    <label>
+                        Stock Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productStock"
+                        placeholder="Example: 20"
+                    >
+
+                </div>
+
+
+
+                <div class="input-box">
+
+                    <label>
+                        Product Emoji
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productEmoji"
+                        placeholder="Example: 🥕"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="add-btn"
+                onclick="addProduct()"
+            >
+                Add Product
+            </button>
+
+
+        </section>
+
+
+
+        <!-- PRODUCT LIST -->
+
+        <div class="products-header">
+
+            <h2>
+                All Products
+            </h2>
+
+            <div
+                class="product-count"
+                id="productCount"
+            >
+                0 products
+            </div>
+
+        </div>
+
+
+        <div
+            class="products"
+            id="productsContainer"
+        ></div>
+
+
+    </main>
+
+
+
+    <footer>
+
+        © 2026 Dharshini Mart — Admin Panel
+
+    </footer>
+
+
+
+    <script>
+
+
+        /* =========================
+           DEFAULT PRODUCTS
+        ========================== */
+
+        let products =
+            JSON.parse(
+                localStorage.getItem("adminProducts")
+            );
+
+
+        if (!products) {
+
+            products = [
+
+                {
+                    id: 1,
+                    name: "Potato",
+                    category: "Vegetables",
+                    price: 40,
+                    stock: 25,
+                    emoji: "🥔"
+                },
+
+                {
+                    id: 2,
+                    name: "Tomato",
+                    category: "Vegetables",
+                    price: 50,
+                    stock: 20,
+                    emoji: "🍅"
+                },
+
+                {
+                    id: 3,
+                    name: "Green Chilli",
+                    category: "Vegetables",
+                    price: 70,
+                    stock: 30,
+                    emoji: "🌶️"
+                },
+
+                {
+                    id: 4,
+                    name: "Brinjal",
+                    category: "Vegetables",
+                    price: 55,
+                    stock: 15,
+                    emoji: "🍆"
+                }
+
+            ];
+
+
+            localStorage.setItem(
+                "adminProducts",
+                JSON.stringify(products)
+            );
+
+        }
+
+
+
+        /* =========================
+           DISPLAY PRODUCTS
+        ========================== */
+
+        function displayProducts() {
+
+
+            const container =
+                document.getElementById(
+                    "productsContainer"
+                );
+
+
+            container.innerHTML = "";
+
+
+            document.getElementById(
+                "productCount"
+            ).textContent =
+                products.length + " products";
+
+
+
+            if (products.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="empty">
+
+                        No products available.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            products.forEach(
+                function(product, index) {
+
+
+                    const outOfStock =
+                        Number(product.stock) <= 0;
+
+
+                    container.innerHTML += `
+
+                        <div class="product-card">
+
+
+                            <div class="product-icon">
+
+                                ${product.emoji || "🥬"}
+
+                            </div>
+
+
+                            <h3>
+
+                                ${product.name}
+
+                            </h3>
+
+
+                            <div class="category">
+
+                                ${product.category}
+
+                            </div>
+
+
+                            <div class="product-info">
+
+
+                                <div class="price">
+
+                                    ₹${product.price}
+
+                                </div>
+
+
+                                <div
+                                    class="stock ${
+                                        outOfStock
+                                        ? "out-stock"
+                                        : ""
+                                    }"
+                                >
+
+                                    ${
+                                        outOfStock
+                                        ? "Out of Stock"
+                                        : "Stock: " + product.stock
+                                    }
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="actions">
+
+
+                                <button
+                                    class="edit-btn"
+                                    onclick="
+                                        editProduct(${index})
+                                    "
+                                >
+                                    ✏️ Edit
+                                </button>
+
+
+                                <button
+                                    class="delete-btn"
+                                    onclick="
+                                        deleteProduct(${index})
+                                    "
+                                >
+                                    🗑️ Delete
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================
+           ADD PRODUCT
+        ========================== */
+
+        function addProduct() {
+
+
+            const name =
+                document.getElementById(
+                    "productName"
+                ).value.trim();
+
+
+            const category =
+                document.getElementById(
+                    "productCategory"
+                ).value;
+
+
+            const price =
+                document.getElementById(
+                    "productPrice"
+                ).value;
+
+
+            const stock =
+                document.getElementById(
+                    "productStock"
+                ).value;
+
+
+            const emoji =
+                document.getElementById(
+                    "productEmoji"
+                ).value.trim();
+
+
+
+            if (
+                name === "" ||
+                price === "" ||
+                stock === ""
+            ) {
+
+                alert(
+                    "Please fill Product Name, Price and Stock."
+                );
+
+                return;
+
+            }
+
+
+
+            const newProduct = {
+
+                id: Date.now(),
+
+                name: name,
+
+                category: category,
+
+                price: Number(price),
+
+                stock: Number(stock),
+
+                emoji: emoji || "🥬"
+
+            };
+
+
+
+            products.push(
+                newProduct
+            );
+
+
+            localStorage.setItem(
+                "adminProducts",
+                JSON.stringify(products)
+            );
+
+
+
+            /* CLEAR FORM */
+
+            document.getElementById(
+                "productName"
+            ).value = "";
+
+
+            document.getElementById(
+                "productPrice"
+            ).value = "";
+
+
+            document.getElementById(
+                "productStock"
+            ).value = "";
+
+
+            document.getElementById(
+                "productEmoji"
+            ).value = "";
+
+
+
+            displayProducts();
+
+
+            alert(
+                "Product added successfully!"
+            );
+
+        }
+
+
+
+        /* =========================
+           EDIT PRODUCT
+        ========================== */
+
+        function editProduct(index) {
+
+
+            const product =
+                products[index];
+
+
+            const newName =
+                prompt(
+                    "Enter Product Name:",
+                    product.name
+                );
+
+
+            if (
+                newName === null ||
+                newName.trim() === ""
+            ) {
+                return;
+            }
+
+
+
+            const newPrice =
+                prompt(
+                    "Enter Price:",
+                    product.price
+                );
+
+
+            if (
+                newPrice === null ||
+                newPrice === ""
+            ) {
+                return;
+            }
+
+
+
+            const newStock =
+                prompt(
+                    "Enter Stock Quantity:",
+                    product.stock
+                );
+
+
+            if (
+                newStock === null ||
+                newStock === ""
+            ) {
+                return;
+            }
+
+
+
+            product.name =
+                newName.trim();
+
+
+            product.price =
+                Number(newPrice);
+
+
+            product.stock =
+                Number(newStock);
+
+
+
+            localStorage.setItem(
+                "adminProducts",
+                JSON.stringify(products)
+            );
+
+
+            displayProducts();
+
+
+            alert(
+                "Product updated successfully!"
+            );
+
+        }
+
+
+
+        /* =========================
+           DELETE PRODUCT
+        ========================== */
+
+        function deleteProduct(index) {
+
+
+            const product =
+                products[index];
+
+
+            const confirmDelete =
+                confirm(
+                    "Delete " +
+                    product.name +
+                    "?"
+                );
+
+
+            if (!confirmDelete) {
+                return;
+            }
+
+
+
+            products.splice(
+                index,
+                1
+            );
+
+
+            localStorage.setItem(
+                "adminProducts",
+                JSON.stringify(products)
+            );
+
+
+            displayProducts();
+
+
+            alert(
+                "Product deleted successfully!"
+            );
+
+        }
+
+
+
+        /* =========================
+           START
+        ========================== */
+
+        displayProducts();
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,401 @@
+/* ==============================
+   SELLER LOGIN PAGE
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f1e7;
+    color: #26352b;
+}
+
+
+/* Main Layout */
+
+.seller-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* ==============================
+   LEFT SECTION
+   ============================== */
+
+.seller-info {
+    background: #173f2b;
+    color: #fffaf0;
+    padding: 45px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Brand */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    background: #f1d58a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+
+/* Information */
+
+.info-content {
+    max-width: 520px;
+    margin: auto 0;
+}
+
+.small-title {
+    color: #e7c96d;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.info-content h1 {
+    font-size: 60px;
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.info-content h1 span {
+    color: #e7c96d;
+    display: block;
+}
+
+.description {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #d8e2d9;
+    margin-bottom: 35px;
+}
+
+
+/* Seller Points */
+
+.seller-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.point {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.point > span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e7c96d;
+    color: #173f2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.point strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.point p {
+    color: #bdcdbf;
+    font-size: 14px;
+}
+
+
+/* ==============================
+   RIGHT LOGIN AREA
+   ============================== */
+
+.seller-login-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #fffaf1;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 500px;
+}
+
+
+/* Header */
+
+.card-header {
+    margin-bottom: 35px;
+}
+
+.card-header p {
+    color: #b28a32;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.card-header h2 {
+    font-size: 42px;
+    color: #20372a;
+    margin-bottom: 10px;
+}
+
+.card-header span {
+    color: #718075;
+    font-size: 16px;
+}
+
+
+/* Form */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #34463a;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label-row a {
+    color: #9a7426;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.label-row a:hover {
+    text-decoration: underline;
+}
+
+
+/* Inputs */
+
+.form-group input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #d7d0c1;
+    border-radius: 12px;
+    background: #fffdf8;
+    outline: none;
+    font-size: 15px;
+    color: #26352b;
+}
+
+.form-group input:focus {
+    border-color: #5d8b62;
+    box-shadow: 0 0 0 3px rgba(93, 139, 98, 0.12);
+}
+
+
+/* Password */
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 75px;
+}
+
+.password-box button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #52775a;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Remember */
+
+.remember-row {
+    margin-bottom: 22px;
+}
+
+.remember-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #66736a;
+    font-size: 14px;
+}
+
+.remember-row input {
+    accent-color: #3d7048;
+}
+
+
+/* Login Button */
+
+.seller-login-btn {
+    width: 100%;
+    border: none;
+    padding: 17px;
+    border-radius: 12px;
+    background: #285c3a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.seller-login-btn:hover {
+    background: #1d472c;
+    transform: translateY(-2px);
+}
+
+
+/* Message */
+
+#sellerMessage {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Demo Box */
+
+.demo-box {
+    margin-top: 28px;
+    padding: 18px;
+    border-left: 4px solid #d3ad4c;
+    background: #f5efdf;
+    border-radius: 8px;
+}
+
+.demo-box span {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #927027;
+}
+
+.demo-box p {
+    margin-top: 7px;
+    color: #69736c;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* Back Link */
+
+.back-link {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+    color: #416d4a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE
+   ============================== */
+
+@media (max-width: 850px) {
+
+    .seller-page {
+        grid-template-columns: 1fr;
+    }
+
+    .seller-info {
+        padding: 35px 25px;
+        min-height: auto;
+    }
+
+    .info-content {
+        margin: 60px 0 30px;
+    }
+
+    .info-content h1 {
+        font-size: 42px;
+    }
+
+    .seller-login-area {
+        padding: 40px 25px;
+    }
+
+    .card-header h2 {
+        font-size: 34px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .seller-info {
+        padding: 25px 20px;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    .info-content h1 {
+        font-size: 36px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+
+    .seller-login-area {
+        padding: 35px 20px;
+    }
+
+    .card-header h2 {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini Mart | Cart</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f8f6;
+            color: #263326;
+        }
+
+
+        /* NAVBAR */
+
+        .navbar {
+            background: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-bottom: 1px solid #e4e8e4;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            font-size: 30px;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #2f7d32;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            width: 88%;
+            max-width: 1150px;
+
+            margin: 45px auto;
+        }
+
+
+        .label {
+            color: #6b8e23;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+
+        /* CART LAYOUT */
+
+        .cart-layout {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        /* CART ITEMS */
+
+        .cart-box {
+            background: white;
+
+            border: 1px solid #e2e7e2;
+
+            border-radius: 15px;
+
+            padding: 22px;
+        }
+
+
+        .cart-item {
+            display: grid;
+
+            grid-template-columns: 80px 1fr auto;
+
+            gap: 18px;
+
+            align-items: center;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #edf0ed;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+
+        .item-image {
+            width: 75px;
+            height: 75px;
+
+            border-radius: 12px;
+
+            background: #f1f7f1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 40px;
+        }
+
+
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+
+            margin-bottom: 6px;
+        }
+
+        .item-price {
+            color: #2f7d32;
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* QUANTITY */
+
+        .quantity {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .quantity button {
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid #ccd5cc;
+
+            background: white;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 17px;
+        }
+
+        .quantity button:hover {
+            background: #eef6ee;
+        }
+
+        .quantity span {
+            min-width: 20px;
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+
+        /* ITEM RIGHT */
+
+        .item-right {
+            text-align: right;
+        }
+
+        .item-total {
+            font-size: 17px;
+            font-weight: bold;
+
+            color: #263326;
+
+            margin-bottom: 12px;
+        }
+
+        .remove {
+            border: none;
+
+            background: none;
+
+            color: #c62828;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+        .remove:hover {
+            text-decoration: underline;
+        }
+
+
+        /* SUMMARY */
+
+        .summary {
+            background: white;
+
+            border: 1px solid #e2e7e2;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            height: fit-content;
+        }
+
+        .summary h2 {
+            margin-bottom: 22px;
+        }
+
+
+        .summary-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 15px;
+
+            color: #626962;
+
+            font-size: 14px;
+        }
+
+
+        .summary-row.total {
+            border-top: 1px solid #e5e8e5;
+
+            padding-top: 18px;
+
+            margin-top: 18px;
+
+            color: #263326;
+
+            font-size: 20px;
+
+            font-weight: bold;
+        }
+
+
+        .checkout-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #2f7d32;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #246428;
+        }
+
+
+        .continue-btn {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #2f7d32;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+        }
+
+
+        /* EMPTY CART */
+
+        .empty-cart {
+            background: white;
+
+            border: 1px solid #e2e7e2;
+
+            border-radius: 15px;
+
+            padding: 70px 20px;
+
+            text-align: center;
+        }
+
+        .empty-icon {
+            font-size: 65px;
+
+            margin-bottom: 15px;
+        }
+
+        .empty-cart h2 {
+            margin-bottom: 10px;
+        }
+
+        .empty-cart p {
+            color: #777;
+
+            margin-bottom: 20px;
+        }
+
+        .shop-btn {
+            display: inline-block;
+
+            padding: 12px 25px;
+
+            background: #2f7d32;
+
+            color: white;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 70px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #263326;
+
+            color: white;
+
+            font-size: 13px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .container {
+                width: 92%;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .cart-item {
+                grid-template-columns: 60px 1fr;
+            }
+
+            .item-image {
+                width: 60px;
+                height: 60px;
+                font-size: 32px;
+            }
+
+            .item-right {
+                grid-column: 2;
+                text-align: left;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <span>🥬</span>
+
+            Dharshini Mart
+
+        </div>
+
+
+        <nav>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="categories.html">
+                Categories
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="cart.html"
+               class="active">
+                Cart
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <div>
+
+            <p class="label">
+                YOUR SHOPPING CART
+            </p>
+
+            <h1>
+                My Cart
+            </h1>
+
+            <p class="subtitle">
+                Review your products before checkout.
+            </p>
+
+        </div>
+
+
+
+        <!-- CART AREA -->
+
+        <div id="cartArea"></div>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Dharshini Mart.
+        All rights reserved.
+
+    </footer>
+
+
+
+    <script>
+
+
+        /* =========================
+           LOAD CART
+        ========================== */
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+
+
+        /* =========================
+           DISPLAY CART
+        ========================== */
+
+        function displayCart() {
+
+
+            const cartArea =
+                document.getElementById(
+                    "cartArea"
+                );
+
+
+            cartArea.innerHTML = "";
+
+
+
+            /* EMPTY */
+
+            if (cart.length === 0) {
+
+                cartArea.innerHTML = `
+
+                    <div class="empty-cart">
+
+                        <div class="empty-icon">
+                            🛒
+                        </div>
+
+                        <h2>
+                            Your Cart is Empty
+                        </h2>
+
+                        <p>
+                            Add some fresh products
+                            to your cart.
+                        </p>
+
+                        <a
+                            href="products.html"
+                            class="shop-btn"
+                        >
+                            Continue Shopping
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+
+            let subtotal = 0;
+
+
+            let itemsHTML = "";
+
+
+
+            /* ITEMS */
+
+            cart.forEach(
+                function(item, index) {
+
+
+                    const price =
+                        Number(item.price);
+
+
+                    const quantity =
+                        Number(item.quantity);
+
+
+                    const itemTotal =
+                        price * quantity;
+
+
+                    subtotal += itemTotal;
+
+
+
+                    itemsHTML += `
+
+                        <div class="cart-item">
+
+
+                            <div class="item-image">
+
+                                ${item.emoji || "🥬"}
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="item-name">
+
+                                    ${item.name}
+
+                                </div>
+
+
+                                <div class="item-price">
+
+                                    ₹${price} / kg
+
+                                </div>
+
+
+                                <div class="quantity">
+
+                                    <button
+                                        onclick="
+                                            decreaseQuantity(
+                                                ${index}
+                                            )
+                                        "
+                                    >
+                                        −
+                                    </button>
+
+
+                                    <span>
+
+                                        ${quantity}
+
+                                    </span>
+
+
+                                    <button
+                                        onclick="
+                                            increaseQuantity(
+                                                ${index}
+                                            )
+                                        "
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="item-right">
+
+                                <div class="item-total">
+
+                                    ₹${itemTotal}
+
+                                </div>
+
+
+                                <button
+                                    class="remove"
+                                    onclick="
+                                        removeItem(
+                                            ${index}
+                                        )
+                                    "
+                                >
+
+                                    🗑️ Remove
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+
+            /* DELIVERY */
+
+            const delivery =
+                subtotal >= 500
+                ? 0
+                : 40;
+
+
+            const total =
+                subtotal + delivery;
+
+
+
+            /* FULL CART */
+
+            cartArea.innerHTML = `
+
+                <div class="cart-layout">
+
+
+                    <!-- ITEMS -->
+
+                    <div class="cart-box">
+
+                        ${itemsHTML}
+
+                    </div>
+
+
+
+                    <!-- SUMMARY -->
+
+                    <div class="summary">
+
+                        <h2>
+                            Order Summary
+                        </h2>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong>
+                                ₹${subtotal}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Delivery
+                            </span>
+
+                            <strong>
+
+                                ${
+                                    delivery === 0
+                                    ? "FREE"
+                                    : "₹" + delivery
+                                }
+
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Items
+                            </span>
+
+                            <strong>
+                                ${cart.length}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong>
+                                ₹${total}
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="checkout-btn"
+                            onclick="goToCheckout()"
+                        >
+
+                            Proceed to Checkout
+
+                        </button>
+
+
+                        <a
+                            href="products.html"
+                            class="continue-btn"
+                        >
+
+                            ← Continue Shopping
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        /* =========================
+           INCREASE
+        ========================== */
+
+        function increaseQuantity(index) {
+
+            cart[index].quantity++;
+
+            saveCart();
+
+        }
+
+
+
+        /* =========================
+           DECREASE
+        ========================== */
+
+        function decreaseQuantity(index) {
+
+
+            if (
+                cart[index].quantity > 1
+            ) {
+
+                cart[index].quantity--;
+
+            }
+
+            else {
+
+                cart.splice(
+                    index,
+                    1
+                );
+
+            }
+
+
+            saveCart();
+
+        }
+
+
+
+        /* =========================
+           REMOVE
+        ========================== */
+
+        function removeItem(index) {
+
+
+            const item =
+                cart[index];
+
+
+            const confirmRemove =
+                confirm(
+                    "Remove " +
+                    item.name +
+                    " from cart?"
+                );
+
+
+            if (!confirmRemove) {
+                return;
+            }
+
+
+            cart.splice(
+                index,
+                1
+            );
+
+
+            saveCart();
+
+        }
+
+
+
+        /* =========================
+           SAVE CART
+        ========================== */
+
+        function saveCart() {
+
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(cart)
+            );
+
+
+            displayCart();
+
+        }
+
+
+
+        /* =========================
+           CHECKOUT
+        ========================== */
+
+        function goToCheckout() {
+
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Your cart is empty."
+                );
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "checkout.html";
+
+        }
+
+
+
+        /* =========================
+           START
+        ========================== */
+
+        displayCart();
+
+
+    </script>
+
+
+</body>
+
+</html>

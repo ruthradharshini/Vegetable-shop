@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini Mart | Admin Orders</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f5;
+            color: #26382c;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #20372a;
+            color: white;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #d9b75d;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 45px auto;
+        }
+
+        .heading {
+            margin-bottom: 30px;
+        }
+
+        .heading p {
+            color: #b18a35;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .heading h1 {
+            font-size: 40px;
+            color: #20372a;
+            margin-bottom: 8px;
+        }
+
+        .heading span {
+            color: #737b74;
+        }
+
+        /* SUMMARY */
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            border: 1px solid #e0e5df;
+            border-radius: 14px;
+            padding: 22px;
+        }
+
+        .summary-card p {
+            color: #788078;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card h2 {
+            color: #216442;
+            font-size: 28px;
+        }
+
+        /* ORDER CARD */
+
+        .order-card {
+            background: white;
+            border: 1px solid #e0e5df;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 22px;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e8ece8;
+        }
+
+        .order-id {
+            font-size: 18px;
+            font-weight: bold;
+            color: #20372a;
+        }
+
+        .order-date {
+            color: #7a827b;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        /* STATUS */
+
+        .status {
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .placed {
+            background: #e8f5e9;
+            color: #28713c;
+        }
+
+        .preparing {
+            background: #e5f0ff;
+            color: #245a9c;
+        }
+
+        .out {
+            background: #fff0d9;
+            color: #a36300;
+        }
+
+        .delivered {
+            background: #dff6e7;
+            color: #16713b;
+        }
+
+        .cancelled {
+            background: #ffe4e4;
+            color: #b52b2b;
+        }
+
+        /* CUSTOMER */
+
+        .customer-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            background: #f8faf8;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .info-box h4 {
+            color: #707970;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* PRODUCTS */
+
+        .products-title {
+            margin-top: 22px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #20372a;
+        }
+
+        .product-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf0ed;
+            font-size: 14px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #216442;
+        }
+
+        /* BOTTOM */
+
+        .order-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: 20px;
+        }
+
+        .payment {
+            color: #69726b;
+            font-size: 13px;
+        }
+
+        .total {
+            color: #20372a;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        /* STATUS CONTROL */
+
+        .status-control {
+            margin-top: 22px;
+            padding-top: 20px;
+            border-top: 1px solid #e8ece8;
+        }
+
+        .status-control label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .status-control select {
+            width: 100%;
+            max-width: 350px;
+            padding: 12px;
+
+            border: 1px solid #d6ddd6;
+            border-radius: 8px;
+
+            background: white;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .status-control select:focus {
+            border-color: #216442;
+        }
+
+        /* EMPTY */
+
+        .empty {
+            background: white;
+            border: 1px solid #e0e5df;
+            border-radius: 16px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .empty h2 {
+            margin-bottom: 10px;
+        }
+
+        .empty p {
+            color: #777;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 60px;
+            background: #182e22;
+            color: #dce5dd;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .customer-info {
+                grid-template-columns: 1fr;
+            }
+
+            .order-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .order-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            🥬 Dharshini Mart — Admin
+        </div>
+
+        <nav>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="orders.html">
+                My Orders
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <div class="heading">
+
+            <p>
+                ADMIN PANEL
+            </p>
+
+            <h1>
+                Order Management
+            </h1>
+
+            <span>
+                View customer orders and update delivery status.
+            </span>
+
+        </div>
+
+
+
+        <!-- SUMMARY -->
+
+        <div class="summary">
+
+            <div class="summary-card">
+
+                <p>
+                    Total Orders
+                </p>
+
+                <h2 id="totalOrders">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <p>
+                    Active Orders
+                </p>
+
+                <h2 id="activeOrders">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <p>
+                    Delivered
+                </p>
+
+                <h2 id="deliveredOrders">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ORDERS -->
+
+        <div id="ordersContainer"></div>
+
+
+    </main>
+
+
+
+    <footer>
+
+        © 2026 Dharshini Mart — Admin Panel
+
+    </footer>
+
+
+
+    <script>
+
+
+        /* =========================
+           LOAD ORDERS
+        ========================== */
+
+        let orders =
+            JSON.parse(
+                localStorage.getItem("orders")
+            ) || [];
+
+
+        const container =
+            document.getElementById(
+                "ordersContainer"
+            );
+
+
+
+        /* =========================
+           SUMMARY
+        ========================== */
+
+        document.getElementById(
+            "totalOrders"
+        ).textContent =
+            orders.length;
+
+
+        const active =
+            orders.filter(
+                order =>
+                    order.status !== "Delivered" &&
+                    order.status !== "Cancelled"
+            ).length;
+
+
+        document.getElementById(
+            "activeOrders"
+        ).textContent =
+            active;
+
+
+        const delivered =
+            orders.filter(
+                order =>
+                    order.status === "Delivered"
+            ).length;
+
+
+        document.getElementById(
+            "deliveredOrders"
+        ).textContent =
+            delivered;
+
+
+
+        /* =========================
+           STATUS CLASS
+        ========================== */
+
+        function getStatusClass(status) {
+
+            if (status === "Preparing") {
+                return "preparing";
+            }
+
+            if (status === "Out for Delivery") {
+                return "out";
+            }
+
+            if (status === "Delivered") {
+                return "delivered";
+            }
+
+            if (status === "Cancelled") {
+                return "cancelled";
+            }
+
+            return "placed";
+        }
+
+
+
+        /* =========================
+           SHOW ORDERS
+        ========================== */
+
+        if (orders.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="empty">
+
+                    <h2>
+                        No Orders Yet
+                    </h2>
+
+                    <p>
+                        Customer orders will appear here.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+
+        else {
+
+            orders.forEach(
+                function(order, index) {
+
+
+                    let productsHTML = "";
+
+
+                    /* PRODUCTS */
+
+                    if (
+                        order.items &&
+                        order.items.length > 0
+                    ) {
+
+                        order.items.forEach(
+                            function(item) {
+
+                                const itemTotal =
+                                    Number(item.price) *
+                                    Number(item.quantity);
+
+
+                                productsHTML += `
+
+                                    <div class="product-row">
+
+                                        <span>
+
+                                            ${item.name}
+
+                                            × ${item.quantity}
+
+                                        </span>
+
+                                        <span class="product-price">
+
+                                            ₹${itemTotal}
+
+                                        </span>
+
+                                    </div>
+
+                                `;
+
+                            }
+                        );
+
+                    }
+
+
+                    else {
+
+                        productsHTML = `
+
+                            <p>
+                                No product information.
+                            </p>
+
+                        `;
+
+                    }
+
+
+
+                    /* STATUS */
+
+                    let currentStatus =
+                        order.status ||
+                        "Order Placed";
+
+
+                    /*
+                       Old orders may contain
+                       "Order Placed".
+                    */
+
+
+                    const statusClass =
+                        getStatusClass(
+                            currentStatus
+                        );
+
+
+
+                    /* ORDER CARD */
+
+                    container.innerHTML += `
+
+                        <div class="order-card">
+
+
+                            <div class="order-header">
+
+                                <div>
+
+                                    <div class="order-id">
+
+                                        Order #${order.orderId}
+
+                                    </div>
+
+                                    <div class="order-date">
+
+                                        ${order.date}
+
+                                    </div>
+
+                                </div>
+
+
+                                <div
+                                    class="status ${statusClass}"
+                                >
+
+                                    ${currentStatus}
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- CUSTOMER -->
+
+                            <div class="customer-info">
+
+
+                                <div class="info-box">
+
+                                    <h4>
+                                        Customer
+                                    </h4>
+
+                                    <p>
+                                        ${order.customerName}
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="info-box">
+
+                                    <h4>
+                                        Phone
+                                    </h4>
+
+                                    <p>
+                                        ${order.phone}
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="info-box">
+
+                                    <h4>
+                                        Email
+                                    </h4>
+
+                                    <p>
+                                        ${order.email}
+                                    </p>
+
+                                </div>
+
+
+
+                                <div class="info-box">
+
+                                    <h4>
+                                        Delivery Address
+                                    </h4>
+
+                                    <p>
+
+                                        ${order.address}
+
+                                        <br>
+
+                                        ${order.city}
+                                        -
+                                        ${order.pincode}
+
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- PRODUCTS -->
+
+                            <div class="products-title">
+
+                                Ordered Products
+
+                            </div>
+
+
+                            ${productsHTML}
+
+
+
+                            <!-- PAYMENT -->
+
+                            <div class="order-bottom">
+
+                                <div class="payment">
+
+                                    Payment:
+
+                                    <strong>
+                                        ${order.payment}
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="total">
+
+                                    Total:
+                                    ₹${order.total}
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- STATUS UPDATE -->
+
+                            <div class="status-control">
+
+                                <label>
+                                    Update Order Status
+                                </label>
+
+
+                                <select
+                                    onchange="
+                                        updateStatus(
+                                            ${index},
+                                            this.value
+                                        )
+                                    "
+                                >
+
+                                    <option
+                                        value="Order Placed"
+                                        ${currentStatus === "Order Placed" ? "selected" : ""}
+                                    >
+                                        Order Placed
+                                    </option>
+
+
+                                    <option
+                                        value="Preparing"
+                                        ${currentStatus === "Preparing" ? "selected" : ""}
+                                    >
+                                        Preparing
+                                    </option>
+
+
+                                    <option
+                                        value="Out for Delivery"
+                                        ${currentStatus === "Out for Delivery" ? "selected" : ""}
+                                    >
+                                        Out for Delivery
+                                    </option>
+
+
+                                    <option
+                                        value="Delivered"
+                                        ${currentStatus === "Delivered" ? "selected" : ""}
+                                    >
+                                        Delivered
+                                    </option>
+
+
+                                    <option
+                                        value="Cancelled"
+                                        ${currentStatus === "Cancelled" ? "selected" : ""}
+                                    >
+                                        Cancelled
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+        }
+
+
+
+        /* =========================
+           UPDATE STATUS
+        ========================== */
+
+        function updateStatus(
+            index,
+            newStatus
+        ) {
+
+
+            orders[index].status =
+                newStatus;
+
+
+            /* SAVE */
+
+            localStorage.setItem(
+                "orders",
+                JSON.stringify(orders)
+            );
+
+
+            /* MESSAGE */
+
+            alert(
+                "Order status updated to: " +
+                newStatus
+            );
+
+
+            /* REFRESH */
+
+            location.reload();
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

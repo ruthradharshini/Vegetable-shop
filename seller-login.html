@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Login | Dharshini Mart</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e8f5e9, #f5fff5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .seller-wrapper {
+            width: 100%;
+            max-width: 1050px;
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+        }
+
+        .seller-intro {
+            padding: 45px;
+            background: linear-gradient(145deg, #126b36, #27934d);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 45px;
+        }
+
+        .brand span {
+            color: #d5ff86;
+        }
+
+        .seller-intro h1 {
+            font-size: 38px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .seller-intro p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #e4f4e7;
+            margin-bottom: 25px;
+        }
+
+        .seller-points {
+            list-style: none;
+        }
+
+        .seller-points li {
+            margin: 16px 0;
+            font-size: 15px;
+        }
+
+        .seller-tagline {
+            margin-top: 35px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #d5ff86;
+        }
+
+        .seller-box {
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .portal-label {
+            display: inline-block;
+            padding: 7px 12px;
+            margin-bottom: 15px;
+            border-radius: 20px;
+            background: #e9f7ec;
+            color: #218640;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .seller-heading {
+            margin-bottom: 28px;
+        }
+
+        .seller-heading h2 {
+            font-size: 30px;
+            color: #183b25;
+            margin-bottom: 10px;
+        }
+
+        .seller-heading p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d7e0d8;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #238642;
+            box-shadow: 0 0 0 3px rgba(35, 134, 66, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-wrapper input {
+            padding-right: 70px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #218640;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #555;
+        }
+
+        .remember input {
+            accent-color: #238642;
+        }
+
+        .forgot-button {
+            border: none;
+            background: transparent;
+            color: #218640;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .seller-login-button {
+            width: 100%;
+            padding: 15px;
+            background: #238642;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .seller-login-button:hover {
+            background: #176b32;
+        }
+
+        .message {
+            display: none;
+            padding: 12px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        .message.error {
+            display: block;
+            color: #a32121;
+            background: #fff0f0;
+            border: 1px solid #ffd0d0;
+        }
+
+        .message.success {
+            display: block;
+            color: #176b32;
+            background: #effaf0;
+            border: 1px solid #c9ebce;
+        }
+
+        .seller-note {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 12px;
+            line-height: 1.7;
+            color: #888;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 22px;
+            color: #777;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-link:hover {
+            color: #218640;
+        }
+
+        @media (max-width: 700px) {
+            .seller-wrapper {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .seller-intro {
+                padding: 30px;
+            }
+
+            .brand {
+                margin-bottom: 25px;
+            }
+
+            .seller-intro h1 {
+                font-size: 29px;
+            }
+
+            .seller-points,
+            .seller-tagline {
+                display: none;
+            }
+
+            .seller-box {
+                padding: 30px 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="seller-wrapper">
+
+        <section class="seller-intro">
+            <div class="brand">🥬 Dharshini <span>Mart</span></div>
+
+            <h1>Grow your business.</h1>
+
+            <p>
+                Sign in to manage your products and orders.
+                Keep your vegetable shop organised with Dharshini Mart.
+            </p>
+
+            <ul class="seller-points">
+                <li>📦 Manage your products</li>
+                <li>🛒 View and manage orders</li>
+                <li>📊 Track your shop activity</li>
+                <li>🌱 Grow your business online</li>
+            </ul>
+
+            <div class="seller-tagline">
+                SELL · MANAGE · GROW
+            </div>
+        </section>
+
+        <section class="seller-box">
+
+            <div class="seller-heading">
+                <div class="portal-label">SELLER PORTAL</div>
+                <h2>Welcome Back!</h2>
+                <p>Sign in to manage your seller account.</p>
+            </div>
+
+            <div id="sellerMessage" class="message" role="status"></div>
+
+            <form id="sellerLoginForm">
+
+                <div class="form-group">
+                    <label for="sellerEmail">Seller Email</label>
+                    <input
+                        type="email"
+                        id="sellerEmail"
+                        placeholder="Enter your seller email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="sellerPassword">Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="sellerPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="toggleSellerPassword"
+                        >Show</button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="rememberSeller">
+                        Remember me
+                    </label>
+
+                    <button
+                        type="button"
+                        class="forgot-button"
+                        id="forgotSellerPassword"
+                    >Forgot password?</button>
+                </div>
+
+                <button type="submit" class="seller-login-button">
+                    Seller Login
+                </button>
+
+            </form>
+
+            <p class="seller-note">
+                ✓ Seller access is available as a frontend demonstration.
+            </p>
+
+            <a href="index.html" class="back-link">
+                ← Back to role selection
+            </a>
+
+        </section>
+
+    </main>
+
+    <script>
+        const sellerForm = document.getElementById("sellerLoginForm");
+        const sellerEmail = document.getElementById("sellerEmail");
+        const sellerPassword = document.getElementById("sellerPassword");
+        const sellerMessage = document.getElementById("sellerMessage");
+
+        function showSellerMessage(text, type) {
+            sellerMessage.textContent = text;
+            sellerMessage.className = "message " + type;
+        }
+
+        // Show / hide password
+        document.getElementById("toggleSellerPassword").addEventListener(
+            "click",
+            function () {
+                const isHidden = sellerPassword.type === "password";
+
+                sellerPassword.type = isHidden ? "text" : "password";
+                this.textContent = isHidden ? "Hide" : "Show";
+            }
+        );
+
+        // Restore remembered email
+        const rememberedEmail = localStorage.getItem("rememberedSellerEmail");
+
+        if (rememberedEmail) {
+            sellerEmail.value = rememberedEmail;
+            document.getElementById("rememberSeller").checked = true;
+        }
+
+        // Seller demo login
+        sellerForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = sellerEmail.value.trim();
+            const password = sellerPassword.value;
+
+            if (!email || !password) {
+                showSellerMessage(
+                    "Please enter your seller email and password.",
+                    "error"
+                );
+                return;
+            }
+
+            if (document.getElementById("rememberSeller").checked) {
+                localStorage.setItem("rememberedSellerEmail", email);
+            } else {
+                localStorage.removeItem("rememberedSellerEmail");
+            }
+
+            // Frontend demonstration only. Credentials are not verified.
+            localStorage.setItem("sellerUser", JSON.stringify({
+                email: email,
+                role: "seller"
+            }));
+
+            showSellerMessage(
+                "Seller login successful! Opening dashboard...",
+                "success"
+            );
+
+            setTimeout(function () {
+                // Existing dashboard file in your project
+                window.location.href = "admin-dashboard.html";
+            }, 700);
+        });
+
+        // Forgot password placeholder
+        document.getElementById("forgotSellerPassword").addEventListener(
+            "click",
+            function () {
+                showSellerMessage(
+                    "Password recovery is not connected yet. Please contact the administrator.",
+                    "error"
+                );
+            }
+        );
+    </script>
+
+</body>
+</html>
